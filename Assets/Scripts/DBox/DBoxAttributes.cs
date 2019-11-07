@@ -5,8 +5,11 @@ using UnityEngine.UI;
 public class DBoxAttributes : MonoBehaviour
 {
     [SerializeField]
-    private Image DBoxImage;
+    public Image DBoxImage;
     [SerializeField]
-    private TMP_Text DBoxText;
+    public TMP_Text DBoxText;
+
+    [HideInInspector]
+    public int i_CurrentDialogueIndex;
     
 }
