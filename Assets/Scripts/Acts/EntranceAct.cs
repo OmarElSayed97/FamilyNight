@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using Action = Structs.Action;
+using Act = Structs.Act;
 using UnityEngine;
 
 public class EntranceAct : MonoBehaviour
 {
 
     GameObject g_DboxObj;
-  
+    
 
 
     [SerializeField]
     GameObject DBoxprefab;
+    [SerializeField]
+    private GameObject SarahRoom;
 
     // Start is called before the first frame update
     void Start()
@@ -22,36 +25,44 @@ public class EntranceAct : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameInitializer.StateInstance.l_Actions[0].isPlaying && !GameInitializer.StateInstance.l_Actions[0].isCompleted)
+        if(GameInitializer.StateInstance.e_CurrentAct == Act.ENTRANCE)
         {
-           
-            TraverseDBox(0);
-            if(g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (GameInitializer.StateInstance.l_Actions[0].l_DialogueBoxes.Count))
+            if (GameInitializer.StateInstance.l_Actions[0].isPlaying && !GameInitializer.StateInstance.l_Actions[0].isCompleted)
             {
-                GameInitializer.StateInstance.l_Actions[0].isCompleted = true;
+
+                TraverseDBox(0);
+                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (GameInitializer.StateInstance.l_Actions[0].l_DialogueBoxes.Count))
+                {
+                    GameInitializer.StateInstance.l_Actions[0].isCompleted = true;
+                }
             }
-        }
 
-        if(!GameInitializer.StateInstance.l_Actions[1].isStarted && !GameInitializer.StateInstance.l_Actions[1].isCompleted && GameInitializer.StateInstance.l_Actions[0].isCompleted)
-        {
-            GameInitializer.StateInstance.l_Actions[1].isStarted = true;
-
-
-            StartCoroutine(WaitingAfterAct(2));
-
-          
-
-        }
-
-        if (GameInitializer.StateInstance.l_Actions[1].isPlaying && !GameInitializer.StateInstance.l_Actions[1].isCompleted && GameInitializer.StateInstance.l_Actions[0].isCompleted)
-        {
-           
-            TraverseDBox(1);
-            if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (GameInitializer.StateInstance.l_Actions[1].l_DialogueBoxes.Count))
+            if (!GameInitializer.StateInstance.l_Actions[1].isStarted && !GameInitializer.StateInstance.l_Actions[1].isCompleted && GameInitializer.StateInstance.l_Actions[0].isCompleted)
             {
-                GameInitializer.StateInstance.l_Actions[1].isCompleted = true;
+                GameInitializer.StateInstance.l_Actions[1].isStarted = true;
+
+
+                StartCoroutine(WaitingAfterAct(2));
+
+
+
             }
-        }
+
+            if (GameInitializer.StateInstance.l_Actions[1].isPlaying && !GameInitializer.StateInstance.l_Actions[1].isCompleted && GameInitializer.StateInstance.l_Actions[0].isCompleted)
+            {
+
+                TraverseDBox(1);
+                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (GameInitializer.StateInstance.l_Actions[1].l_DialogueBoxes.Count))
+                {
+                    GameInitializer.StateInstance.l_Actions[1].isCompleted = true;
+                }
+            }
+
+            if (GameInitializer.StateInstance.l_Actions[0].isCompleted && GameInitializer.StateInstance.l_Actions[1].isCompleted)
+            {
+                SarahRoom.SetActive(true);
+            }
+        }    
     }
 
 

@@ -3,7 +3,8 @@ using UnityEngine;
 using Action = Structs.Action;
 using Dialogue = Structs.Dialogue;
 using State = Structs.State;
-
+using ActionsNames = Structs.ActionsNames;
+using Act = Structs.Act;
 
 
 public class GameInitializer : MonoBehaviour
@@ -28,24 +29,6 @@ public class GameInitializer : MonoBehaviour
 
     public static State StateInstance;
 
-    public enum ActionsNames
-    {
-        WONDERING,
-        LISTEN_SARAH_VOICE,
-        SEE_BED,
-        SEE_POSTER,
-        SEE_SARAH,
-        TAKE_DECISION_SARAH,
-        LEAVE_ROOM_SARAH,
-        SEE_ORIGAMI,
-        TAKE_DECISION_NOAH,
-        PLAY_RPS,
-        LEAVE_ROOM_NOAH,
-        TALK_UNKNOWN_CHARACTER,
-        GO_ELEVATOR,
-        GOES_RIGHT_FLOOR,
-        GOES_WRONG_FLOOR
-    }
     
     private void InitializeActions()
     {       
@@ -130,7 +113,7 @@ public class GameInitializer : MonoBehaviour
         InitializeActions();
         
         StateInstance = new State();
-     
+        StateInstance.e_CurrentAct = Act.ENTRANCE;
         StateInstance.l_Actions = l_Act_Entrance;
       
     }

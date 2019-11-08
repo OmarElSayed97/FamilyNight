@@ -19,8 +19,7 @@ public class ThirdPersonCharacterController : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        
+       
         rb = GetComponent<Rigidbody>();
     }
 
@@ -28,14 +27,37 @@ public class ThirdPersonCharacterController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.W))
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 10))
         {
-            animator.SetTrigger("Walk");
+            if (hit.collider.gameObject.name == "door")
+            {
+
+                hit.collider.gameObject.SetActive(false);
+            }
+
+            if (hit.collider.gameObject.name == "Bed")
+            {
+                Debug.Log("Bed Seen");
+            }
+            if (hit.collider.gameObject.name == "Sarah")
+            {
+                Debug.Log("Sarah");
+            }
+            if (hit.collider.gameObject.name == "Posters")
+            {
+                Debug.Log("Posters");
+            }
+
         }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            animator.SetTrigger("Idle");
-        }
+
+
+
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         PlayerMovement();
         

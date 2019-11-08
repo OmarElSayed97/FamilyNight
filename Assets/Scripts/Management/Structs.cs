@@ -7,14 +7,14 @@ namespace Structs
 {
     public class Action
         {
-            public GameInitializer.ActionsNames e_ActionName;
+            public ActionsNames e_ActionName;
             public bool isPlaying;
             public bool isCompleted;
             public bool isStarted;
             public List<GameObject> l_PrefabsUsedInAct;
             public List<Dialogue> l_DialogueBoxes;
 
-            public Action(GameInitializer.ActionsNames actionName)
+            public Action(ActionsNames actionName)
             {
                 e_ActionName = actionName;
                 isCompleted = false;
@@ -24,7 +24,7 @@ namespace Structs
                 l_PrefabsUsedInAct = new List<GameObject>();
             }
 
-        public Action(GameInitializer.ActionsNames actionName, List<Dialogue> dialogues)
+        public Action(ActionsNames actionName, List<Dialogue> dialogues)
         {
             
             e_ActionName = actionName;
@@ -62,7 +62,7 @@ namespace Structs
     {
         public Vector3 v_FatherPos;
         public bool isHasSon, isHasDaughter, isHasWife;
-        public Enum e_CurrentAct;
+        public Act e_CurrentAct;
         public List<Action> l_Actions;
 
 
@@ -75,5 +75,35 @@ namespace Structs
             l_Actions = new List<Action>();
         }
     }
+
+
+    public enum ActionsNames
+    {
+        WONDERING,
+        LISTEN_SARAH_VOICE,
+        SEE_BED,
+        SEE_POSTER,
+        SEE_SARAH,
+        TAKE_DECISION_SARAH,
+        LEAVE_ROOM_SARAH,
+        SEE_ORIGAMI,
+        TAKE_DECISION_NOAH,
+        PLAY_RPS,
+        LEAVE_ROOM_NOAH,
+        TALK_UNKNOWN_CHARACTER,
+        GO_ELEVATOR,
+        GOES_RIGHT_FLOOR,
+        GOES_WRONG_FLOOR
+    }
+    
+    public enum Act
+    {
+         ENTRANCE,
+         SARAH_ROOM,
+         NOAH_ROOM,
+         ELEVATOR,
+         FINALE
+    }
+
 }
 
