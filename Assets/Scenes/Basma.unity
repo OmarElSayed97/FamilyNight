@@ -3038,7 +3038,7 @@ PrefabInstance:
     - target: {fileID: 2571014199223244069, guid: 38b7680358e725342b0cc2953061ae15,
         type: 3}
       propertyPath: m_Name
-      value: nightstand
+      value: NightStand
       objectReference: {fileID: 0}
     - target: {fileID: 1582252286178567990, guid: 38b7680358e725342b0cc2953061ae15,
         type: 3}
@@ -3314,7 +3314,7 @@ PrefabInstance:
     - target: {fileID: 1747954736558001839, guid: ba414becfd4dfbf429bbe1f62afad6ae,
         type: 3}
       propertyPath: m_Name
-      value: Adagio PL5
+      value: Chandellier
       objectReference: {fileID: 0}
     - target: {fileID: 3322146116192353468, guid: ba414becfd4dfbf429bbe1f62afad6ae,
         type: 3}
@@ -3413,7 +3413,7 @@ PrefabInstance:
     - target: {fileID: 7687740773746240835, guid: a32c9b75d5acc28498253362204d3c39,
         type: 3}
       propertyPath: m_Name
-      value: Rug_FBX
+      value: Rug
       objectReference: {fileID: 0}
     - target: {fileID: 6695461044149067600, guid: a32c9b75d5acc28498253362204d3c39,
         type: 3}
