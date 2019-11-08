@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class mouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
-    public Transform playerBody;
+    public float float_mouseSensitivity = 100f;
+    public Transform transform_playerBody;
 
-    float xRotation = 0f;
+    float float_xRotation = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,15 +18,15 @@ public class mouseLook : MonoBehaviour
     void Update()
     {
         
-        float mouseX = Input.GetAxis("Mouse X")*mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y")*mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X")*float_mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y")*float_mouseSensitivity * Time.deltaTime;
 
 
-        playerBody.Rotate(Vector3.up * mouseX);
+        transform_playerBody.Rotate(Vector3.up * mouseX);
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        float_xRotation -= mouseY;
+        float_xRotation = Mathf.Clamp(float_xRotation, -90f, 90f);
+        transform.localRotation = Quaternion.Euler(float_xRotation, 0f, 0f);
 
        // Debug.Log("x: " + mouseX);
        // Debug.Log("y: " +mouseY);

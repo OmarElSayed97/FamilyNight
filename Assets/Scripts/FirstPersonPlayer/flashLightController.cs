@@ -5,9 +5,9 @@ using UnityEngine;
 public class flashLightController : MonoBehaviour
 {
 
-    private bool flashLightEnabeled;
+    private bool isFlashLightEnabeled;
 
-    public GameObject flashLight;
+    public GameObject go_flashLight;
    // public GameObject lightObject;
    // public float maxEnergy;
   //  public float currentEnergy;
@@ -24,12 +24,12 @@ public class flashLightController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            flashLightEnabeled = !flashLightEnabeled;
+            isFlashLightEnabeled = !isFlashLightEnabeled;
         }
 
-        if (flashLightEnabeled)
-            flashLight.SetActive(true);
+        if (isFlashLightEnabeled)
+            go_flashLight.SetActive(true);
         else
-            flashLight.SetActive(false);
+            go_flashLight.SetActive(false);
     }
 }

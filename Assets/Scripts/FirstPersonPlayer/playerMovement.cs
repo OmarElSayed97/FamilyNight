@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
-    public CharacterController controller;
-    public float speed = 12f;
-    public float gravity = -9.81f;
+    public CharacterController charcontr_controller;
+    public float float_speed = 12f;
+    public float float_gravity = -9.81f;
 
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
+    public Transform transform_groundCheck;
+    public float float_groundDistance = 0.4f;
+    public LayerMask layermask_groundMask;
 
     Vector3 velocity;
-    bool isGrounded;
+    bool bool_isGrounded;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +23,9 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        bool_isGrounded = Physics.CheckSphere(transform_groundCheck.position, float_groundDistance, layermask_groundMask);
 
-        if (isGrounded && velocity.y < 0)
+        if (bool_isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
@@ -34,10 +34,10 @@ public class playerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+        charcontr_controller.Move(move * float_speed * Time.deltaTime);
 
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        velocity.y += float_gravity * Time.deltaTime;
+        charcontr_controller.Move(velocity * Time.deltaTime);
       
 
       
