@@ -20,8 +20,7 @@ public class mouseLook : MonoBehaviour
         
         float mouseX = Input.GetAxis("Mouse X")*float_mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y")*float_mouseSensitivity * Time.deltaTime;
-
-
+       
         transform_playerBody.Rotate(Vector3.up * mouseX);
 
         float_xRotation -= mouseY;

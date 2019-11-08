@@ -12,6 +12,10 @@ public class playerMovement : MonoBehaviour
     public float float_groundDistance = 0.4f;
     public LayerMask layermask_groundMask;
 
+    private bool isFlashLightEnabeled;
+
+    public GameObject go_flashLight;
+
     Vector3 velocity;
     bool bool_isGrounded;
     // Start is called before the first frame update
@@ -38,9 +42,18 @@ public class playerMovement : MonoBehaviour
 
         velocity.y += float_gravity * Time.deltaTime;
         charcontr_controller.Move(velocity * Time.deltaTime);
-      
 
-      
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isFlashLightEnabeled = !isFlashLightEnabeled;
+        }
+
+        if (isFlashLightEnabeled)
+            go_flashLight.SetActive(true);
+        else
+            go_flashLight.SetActive(false);
+
 
     }
 }

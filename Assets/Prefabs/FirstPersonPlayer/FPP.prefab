@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5394444104582249420}
   - component: {fileID: 5394444104582249423}
-  - component: {fileID: 5394444104582249422}
   - component: {fileID: 5394444104582249417}
   m_Layer: 0
   m_Name: FPP
@@ -54,19 +53,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5394444104582249422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5394444104582249416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b28b528274b55fd448065e1574c57ea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashLight: {fileID: 5394444104666828084}
 --- !u!114 &5394444104582249417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,12 +65,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 620317f70fe182d43b8f2b75fc5f6dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 5394444104582249423}
-  speed: 12
-  gravity: -9.81
-  groundCheck: {fileID: 5394444104738024106}
-  groundDistance: 0.4
-  groundMask:
+  charcontr_controller: {fileID: 5394444104582249423}
+  float_speed: 12
+  float_gravity: -9.81
+  transform_groundCheck: {fileID: 5394444104738024106}
+  float_groundDistance: 0.4
+  layermask_groundMask:
     serializedVersion: 2
     m_Bits: 0
 --- !u!1 &5394444104666828084
@@ -99,6 +85,7 @@ GameObject:
   - component: {fileID: 5394444104666828088}
   - component: {fileID: 5394444104666828091}
   - component: {fileID: 5394444104666828090}
+  - component: {fileID: 3053679612912129767}
   m_Layer: 0
   m_Name: flashLight
   m_TagString: Untagged
@@ -180,6 +167,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3053679612912129767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394444104666828084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28b528274b55fd448065e1574c57ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go_flashLight: {fileID: 5394444104666828084}
 --- !u!1 &5394444104738024101
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,5 +491,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba40ae4166b3a6542ba545593b82891c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
-  playerBody: {fileID: 5394444104582249420}
+  float_mouseSensitivity: 100
+  transform_playerBody: {fileID: 0}

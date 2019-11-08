@@ -14,10 +14,16 @@ public class GameInitializer : MonoBehaviour
     public static List<Action> l_Act_Noah;
     public static List<Action> l_Act_Elevator;
     public static List<Action> l_Act_Wife;
+   
 
-    public  List<Dialogue> l_SarahD;
-    public  List<Dialogue> l_WonderingD;
+    public List<Dialogue> l_SarahD;
+    public List<Dialogue> l_WonderingD;
     public List<Dialogue> l_SarahVoiceD;
+    public List<Dialogue> l_SeeBed;
+    public List<Dialogue> l_SeePoster;
+    public List<Dialogue> l_SeeSarah;
+  
+
     [SerializeField]
     private Sprite img_Daugther;
     [SerializeField]
@@ -35,9 +41,9 @@ public class GameInitializer : MonoBehaviour
         Action a_Wondering = new Action(ActionsNames.WONDERING, l_WonderingD);
         Action a_ListenSarahVoice = new Action(ActionsNames.LISTEN_SARAH_VOICE, l_SarahVoiceD);
 
-        Action a_SeeBed = new Action(ActionsNames.SEE_BED,l_SarahD);
-        Action a_SeePotser = new Action(ActionsNames.SEE_POSTER);
-        Action a_SeeSarah = new Action(ActionsNames.SEE_SARAH, l_SarahD);
+        Action a_SeeBed = new Action(ActionsNames.SEE_BED,l_SeeBed);
+        Action a_SeePotser = new Action(ActionsNames.SEE_POSTER, l_SeePoster);
+        Action a_SeeSarah = new Action(ActionsNames.SEE_SARAH, l_SeeSarah);
         Action a_TakeDecisionSarah = new Action(ActionsNames.TAKE_DECISION_SARAH);
         Action a_LeaveRoomSarah = new Action(ActionsNames.LEAVE_ROOM_SARAH);
 
@@ -77,6 +83,10 @@ public class GameInitializer : MonoBehaviour
     {
         l_WonderingD = new List<Dialogue>();
         l_SarahVoiceD = new List<Dialogue>();
+        l_SeeBed = new List<Dialogue>();
+        l_SeePoster = new List<Dialogue>();
+        l_SeeSarah = new List<Dialogue>();
+       
 
         l_SarahD = new List<Dialogue>();
 
@@ -85,19 +95,30 @@ public class GameInitializer : MonoBehaviour
         Dialogue d_Wondering3 = new Dialogue("Where is everyone?! \nYou better show up RIGHT NOW!", img_Daugther);
         Dialogue d_SarahVoice1 = new Dialogue("Sarah??!", img_Son);
         Dialogue d_SarahVoice2 = new Dialogue("Is that you?? \nThis Laugh sounded really creepy (Thinking)", img_Son);
-       
+
+        Dialogue d_SeeBed = new Dialogue("OMG!!! \n Shes not here", img_Daugther);
+        Dialogue d_SeePoster = new Dialogue("Are these her favorite movies!", img_Daugther);
+        Dialogue d_SeeSarah1 = new Dialogue("Saraaaah, Whats happening?? \n What are you doing in the corner there?????", img_Daugther);
+        Dialogue d_SeeSarah2 = new Dialogue("You haven't loved me truly. \n You dont even know my favorite movies", img_Daugther);
+        Dialogue d_SeeSarah3 = new Dialogue("What do you want me to do?", img_Daugther);
+        Dialogue d_SeeSarah4 = new Dialogue("Tell me what whats my favorite movie", img_Daugther);
 
 
-        Dialogue d_Daughter = new Dialogue("Hello, I'm your Sister --> Sama ;)", img_Daugther);
-        Dialogue d_Son = new Dialogue("Hi, How are you doing", img_Son);
-        l_SarahD.Add(d_Daughter);
-        l_SarahD.Add(d_Son);
+
+
 
         l_WonderingD.Add(d_Wondering1);
         l_WonderingD.Add(d_Wondering2);
         l_WonderingD.Add(d_Wondering3);
         l_SarahVoiceD.Add(d_SarahVoice1);
         l_SarahVoiceD.Add(d_SarahVoice2);
+        l_SeeBed.Add(d_SeeBed);
+        l_SeePoster.Add(d_SeePoster);
+        l_SeeSarah.Add(d_SeeSarah1);
+        l_SeeSarah.Add(d_SeeSarah2);
+        l_SeeSarah.Add(d_SeeSarah3);
+        l_SeeSarah.Add(d_SeeSarah4);
+
 
     }
 
