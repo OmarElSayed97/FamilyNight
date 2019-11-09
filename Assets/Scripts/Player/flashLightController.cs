@@ -26,7 +26,7 @@ public class flashLightController : MonoBehaviour
         {
            
             Debug.DrawRay(transform.position, transform.forward*10);
-            if (hit.collider.gameObject.name == "Door")
+            if (hit.collider.gameObject.name == "door")
             {
                 hit.collider.gameObject.SetActive(false);
                 Debug.Log("Door Touched");
