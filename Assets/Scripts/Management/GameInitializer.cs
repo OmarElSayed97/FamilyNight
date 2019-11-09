@@ -32,8 +32,9 @@ public class GameInitializer : MonoBehaviour
     public List<Dialogue> l_SeeBedD;
     public List<Dialogue> l_SeePosterD;
     public List<Dialogue> l_SeeSarahD;
+    public List<Dialogue> l_LeaveRoomWithSarah;
+    public List<Dialogue> l_LeaveRoomWithOutSarah;
 
-  
 
 
     [SerializeField]
@@ -63,7 +64,8 @@ public class GameInitializer : MonoBehaviour
         Action a_SeePotser = new Action(ActionsNames.SEE_POSTER, l_SeePosterD);
         Action a_SeeSarah = new Action(ActionsNames.SEE_SARAH, l_SeeSarahD);
         Action a_TakeDecisionSarah = new Action(ActionsNames.TAKE_DECISION_SARAH);
-        Action a_LeaveRoomSarah = new Action(ActionsNames.LEAVE_ROOM_SARAH);
+        Action a_LeaveRoomWithSarah = new Action(ActionsNames.LEAVE_ROOM_WITH_SARAH, l_LeaveRoomWithSarah);
+        Action a_LeaveRoomWithOutSarah = new Action(ActionsNames.LEAVE_ROOM_WITH_OUT_SARAH, l_LeaveRoomWithOutSarah);
 
         Action a_SeeNoah = new Action(ActionsNames.SEE_NOAH, l_enteringNoahRoomD);
         Action a_SeeOrigami = new Action(ActionsNames.SEE_ORIGAMI, l_seeOrigamiD);
@@ -83,7 +85,8 @@ public class GameInitializer : MonoBehaviour
         l_Act_Sarah.Add(a_SeePotser);
         l_Act_Sarah.Add(a_SeeSarah);
         l_Act_Sarah.Add(a_TakeDecisionSarah);
-        l_Act_Sarah.Add(a_LeaveRoomSarah);
+        l_Act_Sarah.Add(a_LeaveRoomWithSarah);
+        l_Act_Sarah.Add(a_LeaveRoomWithOutSarah);
 
         l_Act_Noah.Add(a_SeeNoah);
         l_Act_Noah.Add(a_SeeOrigami);
@@ -103,21 +106,14 @@ public class GameInitializer : MonoBehaviour
     {
         l_WonderingD = new List<Dialogue>();
         l_SarahVoiceD = new List<Dialogue>();
-
-
-      
-
-        l_SeeBed = new List<Dialogue>();
-        l_SeePoster = new List<Dialogue>();
-        l_SeeSarah = new List<Dialogue>();
-
+        
         l_SeeBedD = new List<Dialogue>();
         l_SeePosterD = new List<Dialogue>();
         l_SeeSarahD = new List<Dialogue>();
-
+        l_LeaveRoomWithSarah = new List<Dialogue>();
+        l_LeaveRoomWithOutSarah = new List<Dialogue>();
        
-
-        l_SarahD = new List<Dialogue>();
+        
 
         Dialogue d_Wondering1 = new Dialogue("I'm hoooooome, I want the dinner ready in 5 min \n OR YOU WILL ALL GET GROUNDED", img_Father_Angry);
         Dialogue d_Wondering2 = new Dialogue("Sarah...... , Noah.......", img_Father_Angry);
@@ -129,12 +125,13 @@ public class GameInitializer : MonoBehaviour
 
 
         Dialogue d_SeeBed = new Dialogue("OMG!!! \n Shes not here", img_Father);
-        Dialogue d_SeePoster = new Dialogue("Are these her favorite movies!", img_Father);
-        Dialogue d_SeeSarah1 = new Dialogue("Saraaaah, Whats happening?? \n What are you doing in the corner there?????", img_Father);
-        Dialogue d_SeeSarah2 = new Dialogue("You haven't loved me truly. \n You dont even know my favorite movies", img_Daugther);
+        Dialogue d_SeePoster = new Dialogue("ًWhat are these?", img_Father);
+        Dialogue d_SeeSarah1 = new Dialogue("Saraaaah\n Whats happening? \n What are you doing in the corner over there?????", img_Father);
+        Dialogue d_SeeSarah2 = new Dialogue("You have never loved me enough \n You literally know nothing about me", img_Daugther);
         Dialogue d_SeeSarah3 = new Dialogue("What do you want me to do?", img_Father);
-        Dialogue d_SeeSarah4 = new Dialogue("Tell me what whats my favorite movie", img_Daugther);
-
+        Dialogue d_SeeSarah4 = new Dialogue("Can you atleast mention my favorite movie!!", img_Daugther);
+        Dialogue d_LeaveRoomWithSarah = new Dialogue("Thanks God,\n You are FINALLY BACK", img_Father);
+        Dialogue d_LeaveRoomWithOutSarah = new Dialogue("SARAAAAAAAAAH!!!", img_Father_Angry);
 
 
 
@@ -151,7 +148,8 @@ public class GameInitializer : MonoBehaviour
         l_SeeSarahD.Add(d_SeeSarah2);
         l_SeeSarahD.Add(d_SeeSarah3);
         l_SeeSarahD.Add(d_SeeSarah4);
-
+        l_LeaveRoomWithSarah.Add(d_LeaveRoomWithSarah);
+        l_LeaveRoomWithOutSarah.Add(d_LeaveRoomWithOutSarah);
 
 
         // dialogues for noah
