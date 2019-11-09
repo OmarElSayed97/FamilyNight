@@ -47,6 +47,17 @@ public class flashLightController : MonoBehaviour
                 Debug.Log("Posters");
             }
 
+            if (hit.collider.gameObject.name == "Noah")
+            {
+                NoahAct.NoahSeen = true;
+                Debug.Log("Noah");
+            }
+            if (hit.collider.gameObject.name == "Origami")
+            {
+                NoahAct.OrigamiSeen = true;
+                Debug.Log("Origami");
+            }
+
 
         }
 

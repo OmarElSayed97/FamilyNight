@@ -59,9 +59,9 @@ public class GameInitializer : MonoBehaviour
         Action a_TakeDecisionSarah = new Action(ActionsNames.TAKE_DECISION_SARAH);
         Action a_LeaveRoomSarah = new Action(ActionsNames.LEAVE_ROOM_SARAH);
 
-        Action a_SeeNoah = new Action(ActionsNames.SEE_NOAH);
-        Action a_SeeOrigami = new Action(ActionsNames.SEE_ORIGAMI);
-        Action a_NoahBlameFather = new Action(ActionsNames.NOAH_BLAME_FATHER);
+        Action a_SeeNoah = new Action(ActionsNames.SEE_NOAH, l_enteringNoahRoomD);
+        Action a_SeeOrigami = new Action(ActionsNames.SEE_ORIGAMI, l_seeOrigamiD);
+        Action a_NoahBlameFather = new Action(ActionsNames.NOAH_BLAME_FATHER, l_blamingD);
         Action a_TakeDecisionNoah = new Action(ActionsNames.TAKE_DECISION_NOAH);
         Action a_LeaveRoomNoah = new Action(ActionsNames.LEAVE_ROOM_NOAH);
 

@@ -57,18 +57,54 @@ public class NoahAct : MonoBehaviour
 
         if (GameInitializer.StateInstance.e_CurrentAct == Act.NOAH_ROOM)
         {
-
-
-            if (NoahSeen && !a_Action_0.isStarted && a_Action_0.isPlaying && !a_Action_0.isCompleted)
+       
+     
+            if (NoahSeen && !a_Action_0.isStarted && !a_Action_0.isPlaying && !a_Action_0.isCompleted)
             {
                 StartCoroutine(SeeNoah());
-             
 
-                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_0.l_DialogueBoxes.Count))
+                if (a_Action_0.isStarted && a_Action_0.isPlaying && !a_Action_0.isCompleted)
                 {
-                    a_Action_0.isCompleted = true;
+                    TraverseDBox(0);
+                    if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_0.l_DialogueBoxes.Count))
+                    {
+                        a_Action_0.isCompleted = true;
+                    }
                 }
             }
+
+            if (OrigamiSeen && !a_Action_1.isStarted && !a_Action_1.isPlaying && !a_Action_1.isCompleted && a_Action_0.isCompleted)
+            {
+                a_Action_1.isStarted = true;
+                g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_1.l_DialogueBoxes);
+                a_Action_1.isPlaying = true;
+
+                if (a_Action_1.isStarted && a_Action_1.isPlaying && !a_Action_1.isCompleted)
+                {
+                    TraverseDBox(1);
+                    if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_1.l_DialogueBoxes.Count))
+                    {
+                        a_Action_1.isCompleted = true;
+                    }
+                }
+            }
+
+            if (  !a_Action_2.isStarted && !a_Action_2.isPlaying && !a_Action_2.isCompleted && a_Action_0.isCompleted && a_Action_1.isCompleted)
+            {
+                a_Action_2.isStarted = true;
+                g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_2.l_DialogueBoxes);
+                a_Action_2.isPlaying = true;
+
+                if (a_Action_2.isStarted && a_Action_2.isPlaying && !a_Action_2.isCompleted)
+                {
+                    TraverseDBox(2);
+                    if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_2.l_DialogueBoxes.Count))
+                    {
+                        a_Action_2.isCompleted = true;
+                    }
+                }
+            }
+
 
 
 
@@ -78,11 +114,20 @@ public class NoahAct : MonoBehaviour
     IEnumerator SeeNoah()
     {
         yield return new WaitForSeconds(1f);
-
-        g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_0.l_DialogueBoxes);
         a_Action_0.isStarted = true;
+        g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_0.l_DialogueBoxes);
+        a_Action_0.isPlaying = true;
 
     }
 
+
+    void TraverseDBox(int i)
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && g_DboxObj != null)
+        {
+            DBox.CreateSeqDBox(g_DboxObj, GameInitializer.StateInstance.l_Actions[i].l_DialogueBoxes, g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex);
+            g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex++;
+        }
+    }
 
 }
