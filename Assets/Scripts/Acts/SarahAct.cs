@@ -21,7 +21,7 @@ public class SarahAct : MonoBehaviour
     void Start()
     {
         GameInitializer.StateInstance.e_CurrentAct = Act.SARAH_ROOM;
-        GameInitializer.StateInstance.l_Actions = GameInitializer.l_Act_Sarah;
+        GameInitializer.StateInstance.l_Actions = GameInitializer.l_Act_Noah;
         a_Action_0 = GameInitializer.StateInstance.l_Actions[0];
         a_Action_1 = GameInitializer.StateInstance.l_Actions[1];
         a_Action_2 = GameInitializer.StateInstance.l_Actions[2];
