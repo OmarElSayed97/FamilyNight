@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4c115322-ad9d-41ff-b9cb-783c4be8be8f" name="Default Changelist" comment="" />
+    <list default="true" id="4c115322-ad9d-41ff-b9cb-783c4be8be8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/flashLightController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/flashLightController.cs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +16,7 @@
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Management/GameInitializer.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="338">
-              <caret line="200" column="50" lean-forward="true" selection-start-line="200" selection-start-column="50" selection-end-line="200" selection-end-column="50" />
+              <caret line="200" column="50" selection-start-line="200" selection-start-column="50" selection-end-line="200" selection-end-column="50" />
               <folding>
                 <marker date="1573338780887" expanded="true" signature="6:228" ph="..." />
                 <marker date="1573338780887" expanded="true" signature="275:7917" ph="{...}" />
@@ -70,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Acts/SarahAct.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1496">
-              <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
               <folding>
                 <marker date="1573339088091" expanded="true" signature="6:152" ph="..." />
                 <marker date="1573339088091" expanded="true" signature="191:7060" ph="{...}" />
@@ -157,24 +159,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player/flashLightController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="36" column="72" selection-end-line="59" />
+            <state relative-caret-position="332">
+              <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
               <folding>
-                <marker date="1573338397631" expanded="false" signature="6:78" ph="..." />
-                <marker date="1573338397631" expanded="true" signature="129:1401" ph="{...}" />
-                <marker date="1573338397631" expanded="true" signature="139:236" ph="/* public GameObject lightObject; ... */" />
-                <marker date="1573338397631" expanded="true" signature="308:329" ph="{...}" />
-                <marker date="1573338397631" expanded="true" signature="387:1399" ph="{...}" />
-                <marker date="1573338397631" expanded="true" signature="499:1392" ph="{...}" />
-                <marker date="1573338397631" expanded="true" signature="634:720" ph="{...}" />
-                <marker date="1573338397631" expanded="true" signature="776:845" ph="{...}" />
-                <marker date="1573338397631" expanded="true" signature="920:991" ph="{...}" />
-                <marker date="1573338397631" expanded="true" signature="1050:1123" ph="{...}" />
-                <marker date="1573338397631" expanded="true" signature="1180:1249" ph="{...}" />
-                <marker date="1573338397631" expanded="true" signature="1308:1380" ph="{...}" />
+                <marker date="1573342698846" expanded="false" signature="6:78" ph="..." />
+                <marker date="1573342698846" expanded="true" signature="129:1383" ph="{...}" />
+                <marker date="1573342698846" expanded="true" signature="139:236" ph="/* public GameObject lightObject; ... */" />
+                <marker date="1573342698846" expanded="true" signature="308:329" ph="{...}" />
+                <marker date="1573342698846" expanded="true" signature="387:1381" ph="{...}" />
+                <marker date="1573342698846" expanded="true" signature="499:1374" ph="{...}" />
+                <marker date="1573342698846" expanded="true" signature="634:720" ph="{...}" />
+                <marker date="1573342698846" expanded="true" signature="776:845" ph="{...}" />
+                <marker date="1573342698846" expanded="true" signature="902:973" ph="{...}" />
+                <marker date="1573342698846" expanded="true" signature="1032:1105" ph="{...}" />
+                <marker date="1573342698846" expanded="true" signature="1162:1231" ph="{...}" />
+                <marker date="1573342698846" expanded="true" signature="1290:1362" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -236,9 +238,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/playerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Acts/EntranceAct.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/Structs.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/flashLightController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/GameInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Acts/SarahAct.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/flashLightController.cs" />
       </list>
     </option>
   </component>
@@ -364,7 +366,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33044000" />
+    <option name="totallyTimeSpent" value="33352000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -542,7 +544,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Management/GameInitializer.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
-          <caret line="200" column="50" lean-forward="true" selection-start-line="200" selection-start-column="50" selection-end-line="200" selection-end-column="50" />
+          <caret line="200" column="50" selection-start-line="200" selection-start-column="50" selection-end-line="200" selection-end-column="50" />
           <folding>
             <marker date="1573338780887" expanded="true" signature="6:228" ph="..." />
             <marker date="1573338780887" expanded="true" signature="275:7917" ph="{...}" />
@@ -568,31 +570,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player/flashLightController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="36" column="72" selection-end-line="59" />
-          <folding>
-            <marker date="1573338397631" expanded="false" signature="6:78" ph="..." />
-            <marker date="1573338397631" expanded="true" signature="129:1401" ph="{...}" />
-            <marker date="1573338397631" expanded="true" signature="139:236" ph="/* public GameObject lightObject; ... */" />
-            <marker date="1573338397631" expanded="true" signature="308:329" ph="{...}" />
-            <marker date="1573338397631" expanded="true" signature="387:1399" ph="{...}" />
-            <marker date="1573338397631" expanded="true" signature="499:1392" ph="{...}" />
-            <marker date="1573338397631" expanded="true" signature="634:720" ph="{...}" />
-            <marker date="1573338397631" expanded="true" signature="776:845" ph="{...}" />
-            <marker date="1573338397631" expanded="true" signature="920:991" ph="{...}" />
-            <marker date="1573338397631" expanded="true" signature="1050:1123" ph="{...}" />
-            <marker date="1573338397631" expanded="true" signature="1180:1249" ph="{...}" />
-            <marker date="1573338397631" expanded="true" signature="1308:1380" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Acts/SarahAct.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1496">
-          <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
           <folding>
             <marker date="1573339088091" expanded="true" signature="6:152" ph="..." />
             <marker date="1573339088091" expanded="true" signature="191:7060" ph="{...}" />
@@ -619,6 +600,27 @@
             <marker date="1573339088091" expanded="true" signature="6582:6654" ph="{...}" />
             <marker date="1573339088091" expanded="true" signature="6713:7058" ph="{...}" />
             <marker date="1573339088091" expanded="true" signature="6785:7052" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player/flashLightController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
+          <folding>
+            <marker date="1573342698846" expanded="false" signature="6:78" ph="..." />
+            <marker date="1573342698846" expanded="true" signature="129:1383" ph="{...}" />
+            <marker date="1573342698846" expanded="true" signature="139:236" ph="/* public GameObject lightObject; ... */" />
+            <marker date="1573342698846" expanded="true" signature="308:329" ph="{...}" />
+            <marker date="1573342698846" expanded="true" signature="387:1381" ph="{...}" />
+            <marker date="1573342698846" expanded="true" signature="499:1374" ph="{...}" />
+            <marker date="1573342698846" expanded="true" signature="634:720" ph="{...}" />
+            <marker date="1573342698846" expanded="true" signature="776:845" ph="{...}" />
+            <marker date="1573342698846" expanded="true" signature="902:973" ph="{...}" />
+            <marker date="1573342698846" expanded="true" signature="1032:1105" ph="{...}" />
+            <marker date="1573342698846" expanded="true" signature="1162:1231" ph="{...}" />
+            <marker date="1573342698846" expanded="true" signature="1290:1362" ph="{...}" />
           </folding>
         </state>
       </provider>

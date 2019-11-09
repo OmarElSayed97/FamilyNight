@@ -34,7 +34,7 @@ public class flashLightController : MonoBehaviour
             {
                 SarahAct.BedSeen = true;
             }
-            if (hit.collider.gameObject.name == "Sarah@Sitting Idle(1) 1")
+            if (hit.collider.gameObject.name == "Sarah")
             {
                 SarahAct.SarahSeen = true;
             }
