@@ -33598,6 +33598,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sarah
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b8a42cddc74d16242957672535df3a32,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b8a42cddc74d16242957672535df3a32,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42838,7 +42843,7 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 70
-  m_SpotAngle: 90.5
+  m_SpotAngle: 77.7
   m_InnerSpotAngle: 19.7
   m_CookieSize: 10
   m_Shadows:
