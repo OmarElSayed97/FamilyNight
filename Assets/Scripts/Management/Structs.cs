@@ -90,11 +90,16 @@ namespace Structs
         SEE_ORIGAMI,
         NOAH_BLAME_FATHER,
         TAKE_DECISION_NOAH,
+        CHOOSE_NOAH_ONLY,
+        CHOOSE_SARAH_ONLY,
+        PLAY_RPSD,
+        CHOOSE_ROCK,
+        CHOOSE_PAPER,
+        CHOOSE_SCISSOR,
         LEAVE_ROOM_NOAH,
         TALK_UNKNOWN_CHARACTER,
-        GO_ELEVATOR,
-        GOES_RIGHT_FLOOR,
-        GOES_WRONG_FLOOR
+        GO_ELEVATOR_DECISION,
+        
     }
     
     public enum Act

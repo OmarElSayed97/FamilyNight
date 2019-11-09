@@ -24,6 +24,12 @@ public class GameInitializer : MonoBehaviour
     public List<Dialogue> l_enteringNoahRoomD;
     public List<Dialogue> l_seeOrigamiD;
     public List<Dialogue> l_blamingD;
+    public List<Dialogue> l_chooseNoahOnlyD;
+    public List<Dialogue> l_chooseSarahOnlyD;
+    public List<Dialogue> l_PlayRPSD;
+    public List<Dialogue> l_ChooseRockD;
+    public List<Dialogue> l_ChoosePaperD;
+    public List<Dialogue> l_ChooseScissorD;
 
     public List<Dialogue> l_SeeBed;
     public List<Dialogue> l_SeePoster;
@@ -63,12 +69,17 @@ public class GameInitializer : MonoBehaviour
         Action a_SeeOrigami = new Action(ActionsNames.SEE_ORIGAMI, l_seeOrigamiD);
         Action a_NoahBlameFather = new Action(ActionsNames.NOAH_BLAME_FATHER, l_blamingD);
         Action a_TakeDecisionNoah = new Action(ActionsNames.TAKE_DECISION_NOAH);
+        Action a_chooseNoahOnly = new Action(ActionsNames.CHOOSE_NOAH_ONLY, l_chooseNoahOnlyD);
+        Action a_chooseSarahOnly = new Action(ActionsNames.CHOOSE_SARAH_ONLY , l_chooseSarahOnlyD);
+        Action a_chooseRPS = new Action(ActionsNames.PLAY_RPSD ,l_PlayRPSD);
+        Action a_chooseRock = new Action(ActionsNames.CHOOSE_ROCK , l_ChooseRockD);
+        Action a_choosePaper = new Action(ActionsNames.CHOOSE_PAPER , l_ChoosePaperD);
+        Action a_chooseScissor = new Action(ActionsNames.CHOOSE_SCISSOR , l_ChooseScissorD);
         Action a_LeaveRoomNoah = new Action(ActionsNames.LEAVE_ROOM_NOAH);
 
         Action a_TalkToUnknown = new Action(ActionsNames.TALK_UNKNOWN_CHARACTER);
-        Action a_GoElevator = new Action(ActionsNames.GO_ELEVATOR);
-        Action a_GoesRightFloor = new Action(ActionsNames.GOES_RIGHT_FLOOR);
-        Action a_GoesWrongFloor = new Action(ActionsNames.GOES_WRONG_FLOOR);
+        Action a_GoElevator = new Action(ActionsNames.GO_ELEVATOR_DECISION);
+
 
         l_Act_Entrance.Add(a_Wondering);
         l_Act_Entrance.Add(a_ListenSarahVoice);
@@ -87,8 +98,6 @@ public class GameInitializer : MonoBehaviour
 
         l_Act_Wife.Add(a_TalkToUnknown);
         l_Act_Wife.Add(a_GoElevator);
-        l_Act_Wife.Add(a_GoesRightFloor);
-        l_Act_Wife.Add(a_GoesWrongFloor);
 
 
     }
@@ -99,19 +108,11 @@ public class GameInitializer : MonoBehaviour
         l_SarahVoiceD = new List<Dialogue>();
 
 
-      
-
-        l_SeeBed = new List<Dialogue>();
-        l_SeePoster = new List<Dialogue>();
-        l_SeeSarah = new List<Dialogue>();
-
         l_SeeBedD = new List<Dialogue>();
         l_SeePosterD = new List<Dialogue>();
         l_SeeSarahD = new List<Dialogue>();
 
-       
-
-        l_SarahD = new List<Dialogue>();
+   
 
         Dialogue d_Wondering1 = new Dialogue("I'm hoooooome, I want the dinner ready in 5 min \n OR YOU WILL ALL GET GROUNDED", img_Daugther);
         Dialogue d_Wondering2 = new Dialogue("Sarah...... , Noah.......", img_Daugther);
@@ -128,8 +129,6 @@ public class GameInitializer : MonoBehaviour
         Dialogue d_SeeSarah2 = new Dialogue("You haven't loved me truly. \n You dont even know my favorite movies", img_Daugther);
         Dialogue d_SeeSarah3 = new Dialogue("What do you want me to do?", img_Daugther);
         Dialogue d_SeeSarah4 = new Dialogue("Tell me what whats my favorite movie", img_Daugther);
-
-
 
 
 
@@ -152,6 +151,12 @@ public class GameInitializer : MonoBehaviour
         l_enteringNoahRoomD = new List<Dialogue>();
         l_seeOrigamiD = new List<Dialogue>();
         l_blamingD = new List<Dialogue>();
+        l_chooseNoahOnlyD = new List<Dialogue>();
+        l_chooseSarahOnlyD = new List<Dialogue>();
+        l_PlayRPSD = new List<Dialogue>();
+        l_ChooseRockD = new List<Dialogue>();
+        l_ChoosePaperD = new List<Dialogue>();
+        l_ChooseScissorD = new List<Dialogue>();
 
         Dialogue d_enteringNoahRoom1 = new Dialogue("Noah!\nThank God you're Ok!", img_Father);
         Dialogue d_enteringNoahRoom2 = new Dialogue("son why are you not answering?", img_Father);  // 1st action
@@ -163,6 +168,14 @@ public class GameInitializer : MonoBehaviour
         Dialogue d_blaming3 = new Dialogue("WELL I HAVE NEVER FORGOTTEN", img_Son);
         Dialogue d_blaming4 = new Dialogue("Let's solve this out later son!\n come on, come with me, let us escape now!", img_Father); //2nd
         Dialogue d_blaming5 = new Dialogue("No this time is on me..\nLET'S PLAY!", img_Son);
+
+        Dialogue d_chooseNoah1 = new Dialogue("You proved me wrong, you do care about me!", img_Son);
+        Dialogue d_chooseNoah2 = new Dialogue("Let's get out of here son!", img_Father);
+
+        Dialogue d_chooseSarah1 = new Dialogue("I knew it! you would choose her over me!", img_Son);
+        Dialogue d_chooseSarah2 = new Dialogue("See you in another life son", img_Son);
+
+        Dialogue d_
 
         l_enteringNoahRoomD.Add(d_enteringNoahRoom1);
         l_enteringNoahRoomD.Add(d_enteringNoahRoom2);
@@ -178,13 +191,10 @@ public class GameInitializer : MonoBehaviour
 
 
 
-
-
     }
 
     private void Start()
     {
-      
         l_Act_Entrance = new List<Action>();
         l_Act_Sarah = new List<Action>();
         l_Act_Noah = new List<Action>();
@@ -199,5 +209,4 @@ public class GameInitializer : MonoBehaviour
       
     }
 
-    
 }

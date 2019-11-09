@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Act = Structs.Act;
 using Action = Structs.Action;
-
+using UnityEngine.UI;
 
 
 //# SEE_NOAH,
@@ -34,6 +34,16 @@ public class NoahAct : MonoBehaviour
 
     [SerializeField]
     GameObject DBoxprefab;
+
+
+
+    GameObject g_threeChoiceCanv;
+
+
+    [SerializeField]
+    GameObject ThreeChoice;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -104,6 +114,82 @@ public class NoahAct : MonoBehaviour
                     }
                 }
             }
+
+            if (!a_Action_3.isStarted && !a_Action_3.isPlaying && !a_Action_3.isCompleted && a_Action_0.isCompleted && a_Action_1.isCompleted && a_Action_2.isCompleted)
+            {
+                a_Action_3.isStarted = true;
+                g_threeChoiceCanv = Instantiate(ThreeChoice);
+                Transform panel = g_threeChoiceCanv.transform.GetChild(0);
+
+                Transform button1 = panel.transform.GetChild(0);
+                Transform button2 = panel.transform.GetChild(1);
+                Transform button3 = panel.transform.GetChild(2);
+
+                Transform text1 = button1.transform.GetChild(0);
+                Transform text2 = button2.transform.GetChild(1);
+                Transform text3 = button3.transform.GetChild(3);
+
+
+                text1.gameObject.GetComponent<Text>().text = "Take me only\n press 1";
+                text2.gameObject.GetComponent<Text>().text = "Take my sister\n press 2";
+                text3.gameObject.GetComponent<Text>().text = "Play Rock Paper Scissor\n press3";
+
+
+                a_Action_3.isPlaying = true;
+
+
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    GameInitializer.StateInstance.isHasSon = true;
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha2))
+                    GameInitializer.StateInstance.isHasDaughter = true;
+                else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+
+                    a_Action_4.isStarted = true;
+                }
+                   
+            }
+
+            if (a_Action_4.isStarted && a_Action_3.isCompleted && a_Action_2.isCompleted && a_Action_1.isCompleted && a_Action_0.isCompleted)
+            {
+                a_Action_4.isPlaying = true;
+                g_threeChoiceCanv = Instantiate(ThreeChoice);
+                Transform panel = g_threeChoiceCanv.transform.GetChild(0);
+
+                Transform button1 = panel.transform.GetChild(0);
+                Transform button2 = panel.transform.GetChild(1);
+                Transform button3 = panel.transform.GetChild(2);
+
+                Transform text1 = button1.transform.GetChild(0);
+                Transform text2 = button2.transform.GetChild(1);
+                Transform text3 = button3.transform.GetChild(3);
+
+
+                text1.gameObject.GetComponent<Text>().text = "Rock\n press 1";
+                text2.gameObject.GetComponent<Text>().text = "Paper\n press 2";
+                text3.gameObject.GetComponent<Text>().text = "Scissor\n press3";
+
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    GameInitializer.StateInstance.isHasSon = false;
+                    GameInitializer.StateInstance.isHasDaughter = false;
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    GameInitializer.StateInstance.isHasDaughter = true;
+                    GameInitializer.StateInstance.isHasSon = true;
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha2))
+                { 
+                    GameInitializer.StateInstance.isHasDaughter = true;
+                    GameInitializer.StateInstance.isHasSon = true;
+                }
+
+            }
+
+
+
 
 
 
