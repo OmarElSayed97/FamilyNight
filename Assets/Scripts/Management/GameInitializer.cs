@@ -39,9 +39,15 @@ public class GameInitializer : MonoBehaviour
     [SerializeField]
     private Sprite img_Daugther;
     [SerializeField]
+    private Sprite img_Daugther_Good;
+    [SerializeField]
     private Sprite img_Son;
     [SerializeField]
+    private Sprite img_Son_Good;
+    [SerializeField]
     private Sprite img_Father;
+    [SerializeField]
+    private Sprite img_Father_Angry;
     [SerializeField]
     private Sprite img_UnknownCharacter;
 
@@ -113,20 +119,20 @@ public class GameInitializer : MonoBehaviour
 
         l_SarahD = new List<Dialogue>();
 
-        Dialogue d_Wondering1 = new Dialogue("I'm hoooooome, I want the dinner ready in 5 min \n OR YOU WILL ALL GET GROUNDED", img_Daugther);
-        Dialogue d_Wondering2 = new Dialogue("Sarah...... , Noah.......", img_Daugther);
-        Dialogue d_Wondering3 = new Dialogue("Where is everyone?! \nYou better show up RIGHT NOW!", img_Daugther);
+        Dialogue d_Wondering1 = new Dialogue("I'm hoooooome, I want the dinner ready in 5 min \n OR YOU WILL ALL GET GROUNDED", img_Father_Angry);
+        Dialogue d_Wondering2 = new Dialogue("Sarah...... , Noah.......", img_Father_Angry);
+        Dialogue d_Wondering3 = new Dialogue("Where is everyone?! \nYou better show up RIGHT NOW!", img_Father_Angry);
 
-        Dialogue d_SarahVoice1 = new Dialogue("Sarah??!", img_Daugther);
-        Dialogue d_SarahVoice2 = new Dialogue("Is that you?? \nThis Laugh sounded really creepy (Thinking)", img_Daugther);
+        Dialogue d_SarahVoice1 = new Dialogue("Sarah??!", img_Father);
+        Dialogue d_SarahVoice2 = new Dialogue("Is that you?? \nThis Laugh sounded really creepy (Thinking)", img_Father);
        
 
 
-        Dialogue d_SeeBed = new Dialogue("OMG!!! \n Shes not here", img_Daugther);
-        Dialogue d_SeePoster = new Dialogue("Are these her favorite movies!", img_Daugther);
-        Dialogue d_SeeSarah1 = new Dialogue("Saraaaah, Whats happening?? \n What are you doing in the corner there?????", img_Daugther);
+        Dialogue d_SeeBed = new Dialogue("OMG!!! \n Shes not here", img_Father);
+        Dialogue d_SeePoster = new Dialogue("Are these her favorite movies!", img_Father);
+        Dialogue d_SeeSarah1 = new Dialogue("Saraaaah, Whats happening?? \n What are you doing in the corner there?????", img_Father);
         Dialogue d_SeeSarah2 = new Dialogue("You haven't loved me truly. \n You dont even know my favorite movies", img_Daugther);
-        Dialogue d_SeeSarah3 = new Dialogue("What do you want me to do?", img_Daugther);
+        Dialogue d_SeeSarah3 = new Dialogue("What do you want me to do?", img_Father);
         Dialogue d_SeeSarah4 = new Dialogue("Tell me what whats my favorite movie", img_Daugther);
 
 
