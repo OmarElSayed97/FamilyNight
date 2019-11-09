@@ -2,6 +2,7 @@
 using Act = Structs.Act;
 using Action = Structs.Action;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SarahAct : MonoBehaviour
 {
@@ -9,9 +10,12 @@ public class SarahAct : MonoBehaviour
     private GameObject DBoxprefab;
 
     [SerializeField] 
-    private GameObject g_SarahCharacter; 
+    private GameObject g_SarahCharacter;
     
-    
+    [SerializeField] 
+    private GameObject g_TwoChoiceCanvas;
+
+    private GameObject g_Canvas;
     private GameObject g_DboxObj;
     
     Action a_Action_0;
@@ -99,6 +103,14 @@ public class SarahAct : MonoBehaviour
                     a_Action_2.isCompleted = true;
                 }
             }
+
+            if (a_Action_0.isCompleted && a_Action_1.isCompleted && a_Action_2.isCompleted && !a_Action_3.isStarted)
+            {
+                a_Action_3.isStarted = true;
+                g_Canvas = Instantiate(g_TwoChoiceCanvas);
+                g_Canvas.GetComponent<Button>().text = "Option1";
+            }
+            
         }
         
     }
