@@ -13581,7 +13581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &831264948
 Transform:
   m_ObjectHideFlags: 0
@@ -25812,6 +25812,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPP
       objectReference: {fileID: 0}
+    - target: {fileID: 5394444104582249417, guid: 1d5b3e12be35ff041a46a109d181476d,
+        type: 3}
+      propertyPath: charcontr_controller
+      value: 
+      objectReference: {fileID: 1927696836}
+    - target: {fileID: 5394444104582249417, guid: 1d5b3e12be35ff041a46a109d181476d,
+        type: 3}
+      propertyPath: transform_groundCheck
+      value: 
+      objectReference: {fileID: 158113526}
+    - target: {fileID: 5394444104582249417, guid: 1d5b3e12be35ff041a46a109d181476d,
+        type: 3}
+      propertyPath: go_flashLight
+      value: 
+      objectReference: {fileID: 1447836481}
     - target: {fileID: 5394444104582249420, guid: 1d5b3e12be35ff041a46a109d181476d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25882,6 +25897,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5394444104582249422, guid: 1d5b3e12be35ff041a46a109d181476d,
+        type: 3}
+      propertyPath: go_flashLight
+      value: 
+      objectReference: {fileID: 1447836481}
     - target: {fileID: 5394444104582249423, guid: 1d5b3e12be35ff041a46a109d181476d,
         type: 3}
       propertyPath: m_Height
@@ -25892,36 +25912,6 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.7
       objectReference: {fileID: 0}
-    - target: {fileID: 5394444104582249422, guid: 1d5b3e12be35ff041a46a109d181476d,
-        type: 3}
-      propertyPath: go_flashLight
-      value: 
-      objectReference: {fileID: 1447836481}
-    - target: {fileID: 5394444104582249417, guid: 1d5b3e12be35ff041a46a109d181476d,
-        type: 3}
-      propertyPath: charcontr_controller
-      value: 
-      objectReference: {fileID: 1927696836}
-    - target: {fileID: 5394444104582249417, guid: 1d5b3e12be35ff041a46a109d181476d,
-        type: 3}
-      propertyPath: transform_groundCheck
-      value: 
-      objectReference: {fileID: 158113526}
-    - target: {fileID: 5394444104582249417, guid: 1d5b3e12be35ff041a46a109d181476d,
-        type: 3}
-      propertyPath: go_flashLight
-      value: 
-      objectReference: {fileID: 1447836481}
-    - target: {fileID: 5394444105884311270, guid: 1d5b3e12be35ff041a46a109d181476d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5394444106408091877, guid: 1d5b3e12be35ff041a46a109d181476d,
-        type: 3}
-      propertyPath: transform_playerBody
-      value: 
-      objectReference: {fileID: 1927696837}
     - target: {fileID: 5394444105773522839, guid: 1d5b3e12be35ff041a46a109d181476d,
         type: 3}
       propertyPath: m_SpotAngle
@@ -25932,6 +25922,16 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5394444105884311270, guid: 1d5b3e12be35ff041a46a109d181476d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5394444106408091877, guid: 1d5b3e12be35ff041a46a109d181476d,
+        type: 3}
+      propertyPath: transform_playerBody
+      value: 
+      objectReference: {fileID: 1927696837}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d5b3e12be35ff041a46a109d181476d, type: 3}
 --- !u!1 &1122266014
@@ -32634,6 +32634,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc8085e3d546bc4e9c988027aa0cb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DBoxprefab: {fileID: 7652252888515137887, guid: 66ff88e4bf3e83c4595fabdb16fbb4b9,
+    type: 3}
+  g_SarahCharacter: {fileID: 831264947}
 --- !u!1 &2041622984
 GameObject:
   m_ObjectHideFlags: 0

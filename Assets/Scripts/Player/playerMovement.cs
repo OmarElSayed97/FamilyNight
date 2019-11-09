@@ -53,7 +53,5 @@ public class playerMovement : MonoBehaviour
             go_flashLight.SetActive(true);
         else
             go_flashLight.SetActive(false);
-
-
     }
 }

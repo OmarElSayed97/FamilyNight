@@ -28,6 +28,11 @@ public class GameInitializer : MonoBehaviour
     public List<Dialogue> l_SeeBed;
     public List<Dialogue> l_SeePoster;
     public List<Dialogue> l_SeeSarah;
+
+    public List<Dialogue> l_SeeBedD;
+    public List<Dialogue> l_SeePosterD;
+    public List<Dialogue> l_SeeSarahD;
+
   
 
 
@@ -48,9 +53,9 @@ public class GameInitializer : MonoBehaviour
         Action a_Wondering = new Action(ActionsNames.WONDERING, l_WonderingD);
         Action a_ListenSarahVoice = new Action(ActionsNames.LISTEN_SARAH_VOICE, l_SarahVoiceD);
 
-        Action a_SeeBed = new Action(ActionsNames.SEE_BED,l_SeeBed);
-        Action a_SeePotser = new Action(ActionsNames.SEE_POSTER, l_SeePoster);
-        Action a_SeeSarah = new Action(ActionsNames.SEE_SARAH, l_SeeSarah);
+        Action a_SeeBed = new Action(ActionsNames.SEE_BED,l_SeeBedD);
+        Action a_SeePotser = new Action(ActionsNames.SEE_POSTER, l_SeePosterD);
+        Action a_SeeSarah = new Action(ActionsNames.SEE_SARAH, l_SeeSarahD);
         Action a_TakeDecisionSarah = new Action(ActionsNames.TAKE_DECISION_SARAH);
         Action a_LeaveRoomSarah = new Action(ActionsNames.LEAVE_ROOM_SARAH);
 
@@ -93,11 +98,17 @@ public class GameInitializer : MonoBehaviour
         l_WonderingD = new List<Dialogue>();
         l_SarahVoiceD = new List<Dialogue>();
 
+
       
 
         l_SeeBed = new List<Dialogue>();
         l_SeePoster = new List<Dialogue>();
         l_SeeSarah = new List<Dialogue>();
+
+        l_SeeBedD = new List<Dialogue>();
+        l_SeePosterD = new List<Dialogue>();
+        l_SeeSarahD = new List<Dialogue>();
+
        
 
         l_SarahD = new List<Dialogue>();
@@ -128,12 +139,12 @@ public class GameInitializer : MonoBehaviour
         l_WonderingD.Add(d_Wondering3);
         l_SarahVoiceD.Add(d_SarahVoice1);
         l_SarahVoiceD.Add(d_SarahVoice2);
-        l_SeeBed.Add(d_SeeBed);
-        l_SeePoster.Add(d_SeePoster);
-        l_SeeSarah.Add(d_SeeSarah1);
-        l_SeeSarah.Add(d_SeeSarah2);
-        l_SeeSarah.Add(d_SeeSarah3);
-        l_SeeSarah.Add(d_SeeSarah4);
+        l_SeeBedD.Add(d_SeeBed);
+        l_SeePosterD.Add(d_SeePoster);
+        l_SeeSarahD.Add(d_SeeSarah1);
+        l_SeeSarahD.Add(d_SeeSarah2);
+        l_SeeSarahD.Add(d_SeeSarah3);
+        l_SeeSarahD.Add(d_SeeSarah4);
 
 
 
