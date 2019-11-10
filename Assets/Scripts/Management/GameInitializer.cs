@@ -99,7 +99,12 @@ public class GameInitializer : MonoBehaviour
         l_Act_Noah.Add(a_SeeNoah);
         l_Act_Noah.Add(a_SeeOrigami);
         l_Act_Noah.Add(a_NoahBlameFather);
-        l_Act_Noah.Add(a_TakeDecisionNoah);
+        l_Act_Noah.Add(a_chooseNoahOnly);
+        l_Act_Noah.Add(a_chooseSarahOnly);
+        l_Act_Noah.Add(a_chooseRPS);
+        l_Act_Noah.Add(a_chooseRock);
+        l_Act_Noah.Add(a_choosePaper);
+        l_Act_Noah.Add(a_chooseScissor);
         l_Act_Noah.Add(a_LeaveRoomNoah);
 
         l_Act_Wife.Add(a_TalkToUnknown);
@@ -181,7 +186,15 @@ public class GameInitializer : MonoBehaviour
         Dialogue d_chooseSarah1 = new Dialogue("I knew it! you would choose her over me!", img_Son);
         Dialogue d_chooseSarah2 = new Dialogue("See you in another life son", img_Son);
 
-        Dialogue d_
+        Dialogue d_PlayRPS1 = new Dialogue("So no you play over us two, either take us both, or leave us forever as you always did.", img_Son);
+
+        Dialogue d_chooseRock1 = new Dialogue("You knew that i would choose paper because of the origami, good job !",img_Son);
+
+        Dialogue d_choosePaper1 = new Dialogue("You knew that you should choose papaer because of the origami, good job !", img_Son);
+
+        Dialogue d_chooseScissor1 = new Dialogue("WRONG CHOICE !\n you lost us both", img_Son);
+
+
 
         l_enteringNoahRoomD.Add(d_enteringNoahRoom1);
         l_enteringNoahRoomD.Add(d_enteringNoahRoom2);
@@ -193,6 +206,19 @@ public class GameInitializer : MonoBehaviour
         l_blamingD.Add(d_blaming3);
         l_blamingD.Add(d_blaming4);
         l_blamingD.Add(d_blaming5);
+
+        l_chooseNoahOnlyD.Add(d_chooseNoah1);
+        l_chooseNoahOnlyD.Add(d_chooseNoah2);
+
+        l_chooseSarahOnlyD.Add(d_chooseSarah1);
+        l_chooseSarahOnlyD.Add(d_chooseSarah2);
+
+        l_ChooseRockD.Add(d_chooseRock1);
+
+        l_ChoosePaperD.Add(d_choosePaper1);
+
+        l_ChooseScissorD.Add(d_chooseScissor1);
+
 
 
 

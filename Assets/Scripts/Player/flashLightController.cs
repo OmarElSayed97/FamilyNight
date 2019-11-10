@@ -47,12 +47,12 @@ public class flashLightController : MonoBehaviour
                 Debug.Log("Posters");
             }
 
-            if (hit.collider.gameObject.name == "Noah")
+            if (hit.collider.gameObject.name == "Son@Sitting Idle")
             {
                 NoahAct.NoahSeen = true;
                 Debug.Log("Noah");
             }
-            if (hit.collider.gameObject.name == "Origami")
+            if (hit.collider.gameObject.name == "Desk1_Polygon")
             {
                 NoahAct.OrigamiSeen = true;
                 Debug.Log("Origami");
