@@ -100,7 +100,7 @@ public class NoahAct : MonoBehaviour
                 }
             }
 
-            if (OrigamiSeen && !a_Action_1.isStarted && !a_Action_1.isPlaying && !a_Action_1.isCompleted && a_Action_0.isCompleted)
+            if (OrigamiSeen && !a_Action_1.isStarted  && !a_Action_1.isCompleted && a_Action_0.isCompleted)
             {
                 a_Action_1.isStarted = true;
                 g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_1.l_DialogueBoxes);
