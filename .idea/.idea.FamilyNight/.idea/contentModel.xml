@@ -7,6 +7,12 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="3rd-Party" t="Include">
+          <e p="Day-Night Skyboxes" t="Include">
+            <e p="readme.txt" t="Include" />
+            <e p="Textures" t="Include">
+              <e p="Readme for Assigning.txt" t="Include" />
+            </e>
+          </e>
           <e p="Liscence.txt" t="Include" />
           <e p="TextMesh Pro" t="Include">
             <e p="Fonts" t="Include">
@@ -125,6 +131,7 @@
         <e p="Scripts" t="Include">
           <e p="Acts" t="Include">
             <e p="ActSample.cs" t="Include" />
+            <e p="ElevatorAct.cs" t="Include" />
             <e p="EntranceAct.cs" t="Include" />
             <e p="NoahAct.cs" t="Include" />
             <e p="SarahAct.cs" t="Include" />
@@ -134,6 +141,7 @@
             <e p="DBoxAttributes.cs" t="Include" />
           </e>
           <e p="Management" t="Include">
+            <e p="ElevatorCollider.cs" t="Include" />
             <e p="GameInitializer.cs" t="Include" />
             <e p="Structs.cs" t="Include" />
           </e>

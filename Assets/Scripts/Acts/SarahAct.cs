@@ -3,7 +3,6 @@ using Act = Structs.Act;
 using Action = Structs.Action;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class SarahAct : MonoBehaviour
 {
@@ -176,6 +175,7 @@ public class SarahAct : MonoBehaviour
                 a_Action_5.isCompleted)
             {
                 g_NoahRoom.SetActive(true);
+                Debug.Log("Noah room is now active");
             }
         }
         

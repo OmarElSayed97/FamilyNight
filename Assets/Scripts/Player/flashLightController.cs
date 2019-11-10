@@ -22,9 +22,9 @@ public class flashLightController : MonoBehaviour
     {
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 20))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 3))
         {
-            Debug.DrawRay(transform.position, transform.forward*20);
+            Debug.DrawRay(transform.position, transform.forward*10);
             if (hit.collider.gameObject.name == "door")
             {
                 hit.collider.gameObject.SetActive(false);
@@ -46,10 +46,17 @@ public class flashLightController : MonoBehaviour
             if (hit.collider.gameObject.name == "Son@Sitting Idle")
             {
                 NoahAct.NoahSeen = true;
+                Debug.Log("Seen noah");
             }
             if (hit.collider.gameObject.name == "Desk1_Polygon")
             {
                 NoahAct.OrigamiSeen = true;
+                Debug.Log("seen Origami");
+            }
+            if (hit.collider.gameObject.name == "Door1" || hit.collider.gameObject.name == "Door2" )
+            {
+                ElevatorAct.ElevatorSeen = true;
+                hit.collider.gameObject.SetActive(false);
             }
 
 

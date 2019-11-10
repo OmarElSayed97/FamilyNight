@@ -98,9 +98,11 @@ namespace Structs
         CHOOSE_PAPER,
         CHOOSE_SCISSOR,
         LEAVE_ROOM_NOAH,
-        TALK_UNKNOWN_CHARACTER,
-        GO_ELEVATOR_DECISION,
-        
+        TALK_UNKNOWN_CHARACTER_WITH_CHILD,
+        TALK_UNKNOWN_CHARACTER_WITH_OUT_CHILD,
+        GO_ELEVATOR,
+        GOES_RIGHT_FLOOR,
+        GOES_WRONG_FLOOR
     }
     
     public enum Act

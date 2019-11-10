@@ -15,8 +15,7 @@ public class GameInitializer : MonoBehaviour
     public static List<Action> l_Act_Elevator;
     public static List<Action> l_Act_Wife;
    
-
-    public List<Dialogue> l_SarahD;
+    
     public List<Dialogue> l_WonderingD;
     public List<Dialogue> l_SarahVoiceD;
 
@@ -31,15 +30,13 @@ public class GameInitializer : MonoBehaviour
     public List<Dialogue> l_ChoosePaperD;
     public List<Dialogue> l_ChooseScissorD;
 
-    public List<Dialogue> l_SeeBed;
-    public List<Dialogue> l_SeePoster;
-    public List<Dialogue> l_SeeSarah;
-
     public List<Dialogue> l_SeeBedD;
     public List<Dialogue> l_SeePosterD;
     public List<Dialogue> l_SeeSarahD;
     public List<Dialogue> l_LeaveRoomWithSarah;
     public List<Dialogue> l_LeaveRoomWithOutSarah;
+    public List<Dialogue> l_TalkToUnknownWithChild;
+    public List<Dialogue> l_TalkToUnknownWithOutChild;
 
 
 
@@ -85,9 +82,11 @@ public class GameInitializer : MonoBehaviour
         Action a_chooseScissor = new Action(ActionsNames.CHOOSE_SCISSOR , l_ChooseScissorD);
         Action a_LeaveRoomNoah = new Action(ActionsNames.LEAVE_ROOM_NOAH);
 
-        Action a_TalkToUnknown = new Action(ActionsNames.TALK_UNKNOWN_CHARACTER);
-        Action a_GoElevator = new Action(ActionsNames.GO_ELEVATOR_DECISION);
-
+        Action a_TalkToUnknownWithChild = new Action(ActionsNames.TALK_UNKNOWN_CHARACTER_WITH_CHILD,l_TalkToUnknownWithChild);
+        Action a_TalkToUnknownWithOutChild = new Action(ActionsNames.TALK_UNKNOWN_CHARACTER_WITH_OUT_CHILD, l_TalkToUnknownWithOutChild);
+        Action a_GoElevator = new Action(ActionsNames.GO_ELEVATOR);
+        Action a_GoesRightFloor = new Action(ActionsNames.GOES_RIGHT_FLOOR);
+        Action a_GoesWrongFloor = new Action(ActionsNames.GOES_WRONG_FLOOR);
 
         l_Act_Entrance.Add(a_Wondering);
         l_Act_Entrance.Add(a_ListenSarahVoice);
@@ -110,8 +109,11 @@ public class GameInitializer : MonoBehaviour
         l_Act_Noah.Add(a_chooseScissor);
         l_Act_Noah.Add(a_LeaveRoomNoah);
 
-        l_Act_Wife.Add(a_TalkToUnknown);
-        l_Act_Wife.Add(a_GoElevator);
+       l_Act_Elevator.Add(a_TalkToUnknownWithChild);
+       l_Act_Elevator.Add(a_TalkToUnknownWithOutChild);
+       l_Act_Elevator.Add(a_GoElevator);
+       l_Act_Elevator.Add(a_GoesRightFloor);
+       l_Act_Elevator.Add(a_GoesWrongFloor);
 
 
     }
@@ -130,6 +132,10 @@ public class GameInitializer : MonoBehaviour
         l_SeeSarahD = new List<Dialogue>();
         l_LeaveRoomWithSarah = new List<Dialogue>();
         l_LeaveRoomWithOutSarah = new List<Dialogue>();
+        
+        l_TalkToUnknownWithChild = new List<Dialogue>();
+        l_TalkToUnknownWithOutChild = new List<Dialogue>();
+        
        
         
 
@@ -139,25 +145,31 @@ public class GameInitializer : MonoBehaviour
 
         Dialogue d_SarahVoice1 = new Dialogue("Sarah??!", img_Father);
         Dialogue d_SarahVoice2 = new Dialogue("Is that you?? \nThis Laugh sounded really creepy (Thinking)", img_Father);
-       
-
-
+        
         Dialogue d_SeeBed = new Dialogue("OMG!!! \n Shes not here", img_Father);
-        Dialogue d_SeePoster = new Dialogue("ًWhat are these?", img_Father);
-        Dialogue d_SeeSarah1 = new Dialogue("Saraaaah\n Whats happening? \n What are you doing in the corner over there?????", img_Father);
-        Dialogue d_SeeSarah2 = new Dialogue("You have never loved me enough \n You literally know nothing about me", img_Daugther);
+        Dialogue d_SeePoster = new Dialogue("What are these?", img_Father);
+        Dialogue d_SeeSarah1 = new Dialogue("Saraaaah\nWhats happening?\nWhat are you doing in the corner over there?????", img_Father);
+        Dialogue d_SeeSarah2 = new Dialogue("You have never loved me enough\nYou literally know nothing about me", img_Daugther);
         Dialogue d_SeeSarah3 = new Dialogue("What do you want me to do?", img_Father);
         Dialogue d_SeeSarah4 = new Dialogue("Can you atleast mention my favorite movie!!", img_Daugther);
-        Dialogue d_LeaveRoomWithSarah = new Dialogue("Thanks God,\n You are FINALLY BACK", img_Father);
+        Dialogue d_LeaveRoomWithSarah = new Dialogue("Thanks God,\nYou are FINALLY BACK\n Lets Go find your brother", img_Father);
         Dialogue d_LeaveRoomWithOutSarah = new Dialogue("SARAAAAAAAAAH!!!", img_Father_Angry);
 
-
+        Dialogue d_TalkToUnknownWithChild1 = new Dialogue("Heyyy You!",img_UnknownCharacter);
+        Dialogue d_TalkToUnknownWithChild2 = new Dialogue("Good Job, so far\n But did you wonder where is your wife??",img_UnknownCharacter);
+        Dialogue d_TalkToUnknownWithChild3 = new Dialogue("Uhhhh??? \n Who's that, WHERE IS SHE?????????",img_Father_Angry);
+        Dialogue d_TalkToUnknownWithChild4 = new Dialogue("GO check her out in the First Floor",img_UnknownCharacter);
+        Dialogue d_TalkToUnknownWithOutChild1 = new Dialogue("Heyyy You!",img_UnknownCharacter);
+        Dialogue d_TalkToUnknownWithOutChild2 = new Dialogue("Did you wonder where is your wife??",img_UnknownCharacter);
+        Dialogue d_TalkToUnknownWithOutChild3 = new Dialogue("Uhhhh??? \n Who's that, WHERE IS SHE?????????",img_Father_Angry);
+        Dialogue d_TalkToUnknownWithOutChild4 = new Dialogue("Hahahaha :D \n I feel pitty for you \n GO check her out in the basement floor",img_UnknownCharacter);
 
         l_WonderingD.Add(d_Wondering1);
         l_WonderingD.Add(d_Wondering2);
         l_WonderingD.Add(d_Wondering3);
         l_SarahVoiceD.Add(d_SarahVoice1);
         l_SarahVoiceD.Add(d_SarahVoice2);
+        
         l_SeeBedD.Add(d_SeeBed);
         l_SeePosterD.Add(d_SeePoster);
         l_SeeSarahD.Add(d_SeeSarah1);
@@ -167,7 +179,15 @@ public class GameInitializer : MonoBehaviour
         l_LeaveRoomWithSarah.Add(d_LeaveRoomWithSarah);
         l_LeaveRoomWithOutSarah.Add(d_LeaveRoomWithOutSarah);
 
-
+        l_TalkToUnknownWithChild.Add(d_TalkToUnknownWithChild1);
+        l_TalkToUnknownWithChild.Add(d_TalkToUnknownWithChild2);
+        l_TalkToUnknownWithChild.Add(d_TalkToUnknownWithChild3);
+        l_TalkToUnknownWithChild.Add(d_TalkToUnknownWithChild4);
+        l_TalkToUnknownWithOutChild.Add(d_TalkToUnknownWithOutChild1);
+        l_TalkToUnknownWithOutChild.Add(d_TalkToUnknownWithOutChild2);
+        l_TalkToUnknownWithOutChild.Add(d_TalkToUnknownWithOutChild3);
+        l_TalkToUnknownWithOutChild.Add(d_TalkToUnknownWithOutChild4);
+        
         // dialogues for noah
         l_enteringNoahRoomD = new List<Dialogue>();
         l_seeOrigamiD = new List<Dialogue>();

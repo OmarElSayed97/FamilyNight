@@ -13,11 +13,13 @@ public class playerMovement : MonoBehaviour
     public LayerMask layermask_groundMask;
 
     private bool isFlashLightEnabeled;
+    public Animator anim;
 
     public GameObject go_flashLight;
 
     Vector3 velocity;
     bool bool_isGrounded;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -45,8 +47,9 @@ public class playerMovement : MonoBehaviour
 
 
         if (Input.GetKeyDown(KeyCode.F))
-        {
+        {    
             isFlashLightEnabeled = !isFlashLightEnabeled;
+            anim.SetBool("HoldingFlashLight", isFlashLightEnabeled);
         }
 
         if (isFlashLightEnabeled)
