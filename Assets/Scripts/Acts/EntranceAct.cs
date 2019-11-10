@@ -14,6 +14,9 @@ public class EntranceAct : MonoBehaviour
     [SerializeField]
     private GameObject SarahRoom;
 
+    [SerializeField]
+    private GameObject NoahRoom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,8 +62,9 @@ public class EntranceAct : MonoBehaviour
 
             if (GameInitializer.StateInstance.l_Actions[0].isCompleted && GameInitializer.StateInstance.l_Actions[1].isCompleted)
             {
-                SarahRoom.SetActive(true);
-            }
+                    SarahRoom.SetActive(true);
+                //NoahRoom.SetActive(true);
+}
         }    
     }
 
