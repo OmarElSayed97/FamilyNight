@@ -46,10 +46,12 @@ public class flashLightController : MonoBehaviour
             if (hit.collider.gameObject.name == "Son@Sitting Idle")
             {
                 NoahAct.NoahSeen = true;
+                Debug.Log("Seen noah");
             }
             if (hit.collider.gameObject.name == "Desk1_Polygon")
             {
                 NoahAct.OrigamiSeen = true;
+                Debug.Log("seen Origami");
             }
 
 

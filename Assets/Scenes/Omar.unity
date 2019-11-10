@@ -37481,6 +37481,7 @@ MonoBehaviour:
   g_SarahCharacter: {fileID: 982958699}
   g_TwoChoiceCanvas: {fileID: 2636047753559951846, guid: 1d99c858f588a1c45adf994dba154118,
     type: 3}
+  g_NoahRoom: {fileID: 1503083173}
 --- !u!1001 &2018914152
 PrefabInstance:
   m_ObjectHideFlags: 0
