@@ -28,34 +28,28 @@ public class flashLightController : MonoBehaviour
             if (hit.collider.gameObject.name == "door")
             {
                 hit.collider.gameObject.SetActive(false);
-                Debug.Log("Door Touched");
             }
 
             if (hit.collider.gameObject.name == "Bed")
             {
                 SarahAct.BedSeen = true;
-                Debug.Log("Bed Seen");
             }
             if (hit.collider.gameObject.name == "Sarah")
             {
                 SarahAct.SarahSeen = true;
-                Debug.Log("Sarah");
             }
             if (hit.collider.gameObject.name == "Posters")
             {
                 SarahAct.PostersSeen = true;
-                Debug.Log("Posters");
             }
 
             if (hit.collider.gameObject.name == "Son@Sitting Idle")
             {
                 NoahAct.NoahSeen = true;
-                Debug.Log("Noah");
             }
             if (hit.collider.gameObject.name == "Desk1_Polygon")
             {
                 NoahAct.OrigamiSeen = true;
-                Debug.Log("Origami");
             }
 
 
