@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Action = Structs.Action;
 using Act = Structs.Act;
 using UnityEngine;
 

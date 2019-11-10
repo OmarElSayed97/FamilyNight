@@ -125,6 +125,7 @@
         <e p="Scripts" t="Include">
           <e p="Acts" t="Include">
             <e p="ActSample.cs" t="Include" />
+            <e p="ElevatorAct.cs" t="Include" />
             <e p="EntranceAct.cs" t="Include" />
             <e p="NoahAct.cs" t="Include" />
             <e p="SarahAct.cs" t="Include" />
