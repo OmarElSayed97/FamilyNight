@@ -29,6 +29,7 @@ public class GameInitializer : MonoBehaviour
     public List<Dialogue> l_ChooseRockD;
     public List<Dialogue> l_ChoosePaperD;
     public List<Dialogue> l_ChooseScissorD;
+    public List<Dialogue> l_LeaveNoahRoomD;
 
     public List<Dialogue> l_SeeBedD;
     public List<Dialogue> l_SeePosterD;
@@ -73,14 +74,14 @@ public class GameInitializer : MonoBehaviour
         Action a_SeeNoah = new Action(ActionsNames.SEE_NOAH, l_enteringNoahRoomD);
         Action a_SeeOrigami = new Action(ActionsNames.SEE_ORIGAMI, l_seeOrigamiD);
         Action a_NoahBlameFather = new Action(ActionsNames.NOAH_BLAME_FATHER, l_blamingD);
-        Action a_TakeDecisionNoah = new Action(ActionsNames.TAKE_DECISION_NOAH);
+  //      Action a_TakeDecisionNoah = new Action(ActionsNames.TAKE_DECISION_NOAH);
         Action a_chooseNoahOnly = new Action(ActionsNames.CHOOSE_NOAH_ONLY, l_chooseNoahOnlyD);
         Action a_chooseSarahOnly = new Action(ActionsNames.CHOOSE_SARAH_ONLY , l_chooseSarahOnlyD);
         Action a_chooseRPS = new Action(ActionsNames.PLAY_RPSD ,l_PlayRPSD);
         Action a_chooseRock = new Action(ActionsNames.CHOOSE_ROCK , l_ChooseRockD);
         Action a_choosePaper = new Action(ActionsNames.CHOOSE_PAPER , l_ChoosePaperD);
         Action a_chooseScissor = new Action(ActionsNames.CHOOSE_SCISSOR , l_ChooseScissorD);
-        Action a_LeaveRoomNoah = new Action(ActionsNames.LEAVE_ROOM_NOAH);
+        Action a_LeaveRoomNoah = new Action(ActionsNames.LEAVE_ROOM_NOAH,l_LeaveNoahRoomD);
 
         Action a_TalkToUnknownWithChild = new Action(ActionsNames.TALK_UNKNOWN_CHARACTER_WITH_CHILD,l_TalkToUnknownWithChild);
         Action a_TalkToUnknownWithOutChild = new Action(ActionsNames.TALK_UNKNOWN_CHARACTER_WITH_OUT_CHILD, l_TalkToUnknownWithOutChild);
@@ -198,6 +199,7 @@ public class GameInitializer : MonoBehaviour
         l_ChooseRockD = new List<Dialogue>();
         l_ChoosePaperD = new List<Dialogue>();
         l_ChooseScissorD = new List<Dialogue>();
+        l_LeaveNoahRoomD = new List<Dialogue>();
 
         Dialogue d_enteringNoahRoom1 = new Dialogue("Noah!\nThank God you're Ok!", img_Father);
         Dialogue d_enteringNoahRoom2 = new Dialogue("son why are you not answering?", img_Father);  // 1st action
@@ -220,10 +222,12 @@ public class GameInitializer : MonoBehaviour
 
         Dialogue d_chooseRock1 = new Dialogue("You knew that i would choose paper because of the origami, good job !",img_Son);
 
-        Dialogue d_choosePaper1 = new Dialogue("You knew that you should choose papaer because of the origami, good job !", img_Son);
+        Dialogue d_choosePaper1 = new Dialogue("You knew that you should choose paper because of the origami, good job !", img_Son);
 
         Dialogue d_chooseScissor1 = new Dialogue("WRONG CHOICE !\n you lost us both", img_Son);
 
+
+        Dialogue d_leaveNoahRoom1 = new Dialogue("Let's search for my wife!", img_Father);
 
 
         l_enteringNoahRoomD.Add(d_enteringNoahRoom1);
@@ -243,11 +247,15 @@ public class GameInitializer : MonoBehaviour
         l_chooseSarahOnlyD.Add(d_chooseSarah1);
         l_chooseSarahOnlyD.Add(d_chooseSarah2);
 
+        l_PlayRPSD.Add(d_PlayRPS1);
+
         l_ChooseRockD.Add(d_chooseRock1);
 
         l_ChoosePaperD.Add(d_choosePaper1);
 
         l_ChooseScissorD.Add(d_chooseScissor1);
+
+        l_LeaveNoahRoomD.Add(d_leaveNoahRoom1);
 
 
 
