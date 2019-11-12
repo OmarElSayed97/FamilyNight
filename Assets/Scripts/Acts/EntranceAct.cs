@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using Act = Structs.Act;
 using UnityEngine;
+using UnityEngine.Playables;
+using System;
 
 public class EntranceAct : MonoBehaviour
 {
@@ -15,14 +17,29 @@ public class EntranceAct : MonoBehaviour
     private GameObject SarahRoom;
 
     [SerializeField]
+    private GameObject Timeline1;
+    [SerializeField]
+    private GameObject Cameras;
+
+    [SerializeField]
     private GameObject NoahRoom;
+
+    [SerializeField]
+    private GameObject FatherWalking;
+
+    [SerializeField]
+    private GameObject FPP;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(StartWondering());
+        
+        StartCoroutine(PlayCutScene1());
+       
 
     }
+
+   
 
     // Update is called once per frame
     void Update()
@@ -92,5 +109,16 @@ public class EntranceAct : MonoBehaviour
             DBox.CreateSeqDBox(g_DboxObj, GameInitializer.StateInstance.l_Actions[i].l_DialogueBoxes, g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex);
             g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex++;
         }
+    }
+
+
+    public IEnumerator PlayCutScene1()
+    {
+        PlayableDirector director = Timeline1.GetComponent<PlayableDirector>();
+        director.Play();
+        yield return new WaitForSeconds((float)director.duration);
+        director.enabled = false;
+        Cameras.SetActive(false);
+        StartCoroutine(StartWondering());
     }
 }

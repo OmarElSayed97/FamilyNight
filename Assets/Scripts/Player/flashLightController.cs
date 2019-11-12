@@ -22,7 +22,7 @@ public class flashLightController : MonoBehaviour
     {
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 3))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 10))
         {
             Debug.DrawRay(transform.position, transform.forward*10);
             if (hit.collider.gameObject.name == "door")

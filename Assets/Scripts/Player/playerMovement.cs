@@ -14,6 +14,7 @@ public class playerMovement : MonoBehaviour
 
     private bool isFlashLightEnabeled;
     public Animator anim;
+    
 
     public GameObject go_flashLight;
 
