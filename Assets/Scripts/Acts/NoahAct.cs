@@ -39,11 +39,16 @@ public class NoahAct : MonoBehaviour
     public static bool MakeDecision;
     public static bool PlayRPS;
 
+    bool showed_decision_rps;
+
 
     GameObject g_DboxObj;
 
     [SerializeField]
     GameObject DBoxprefab;
+
+    [SerializeField]
+    private GameObject g_Elevator;
 
 
 
@@ -58,6 +63,10 @@ public class NoahAct : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
+
+
         GameInitializer.StateInstance.e_CurrentAct = Act.NOAH_ROOM;
         GameInitializer.StateInstance.l_Actions = GameInitializer.l_Act_Noah;
         a_Action_0 = GameInitializer.StateInstance.l_Actions[0]; //SEE_NOAH
@@ -75,6 +84,7 @@ public class NoahAct : MonoBehaviour
         OrigamiSeen = false;
         MakeDecision = false;
         PlayRPS = false;
+        showed_decision_rps = false;
     }
 
     // Update is called once per frame
@@ -84,14 +94,14 @@ public class NoahAct : MonoBehaviour
         if (GameInitializer.StateInstance.e_CurrentAct == Act.NOAH_ROOM)
         {
 
-            if (NoahSeen && !a_Action_0.isStarted && !a_Action_0.isPlaying && !a_Action_0.isCompleted)
+            if (NoahSeen && !a_Action_0.isStarted  && !a_Action_0.isCompleted && (a_Action_1.isCompleted || ! a_Action_1.isStarted) )
             {
                 Debug.Log("should start action 0");
                 a_Action_0.isStarted = true;
                 g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_0.l_DialogueBoxes);
                 a_Action_0.isPlaying = true;
             }
-            if (a_Action_0.isStarted && a_Action_0.isPlaying && !a_Action_0.isCompleted)
+            if (a_Action_0.isStarted && a_Action_0.isPlaying && !a_Action_0.isCompleted && (a_Action_1.isCompleted || !a_Action_1.isStarted))
             {
                 TraverseDBox(0);
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_0.l_DialogueBoxes.Count))
@@ -100,15 +110,17 @@ public class NoahAct : MonoBehaviour
                 }
             }
 
-            if (OrigamiSeen && !a_Action_1.isStarted  && !a_Action_1.isCompleted && a_Action_0.isCompleted)
+            if (OrigamiSeen && !a_Action_1.isStarted  && !a_Action_1.isCompleted && (a_Action_0.isCompleted || !a_Action_0.isStarted))
             {
+
+                Debug.Log("should start action 1");
                 a_Action_1.isStarted = true;
                 g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_1.l_DialogueBoxes);
                 a_Action_1.isPlaying = true;
 
               
             }
-            if (a_Action_1.isStarted && a_Action_1.isPlaying && !a_Action_1.isCompleted)
+            if (a_Action_1.isStarted && a_Action_1.isPlaying && !a_Action_1.isCompleted && (a_Action_0.isCompleted || !a_Action_0.isStarted))
             {
                 TraverseDBox(1);
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_1.l_DialogueBoxes.Count))
@@ -139,33 +151,171 @@ public class NoahAct : MonoBehaviour
                     Transform button3 = panel.transform.GetChild(2);
 
                     Transform text1 = button1.transform.GetChild(0);
-                    Transform text2 = button2.transform.GetChild(1);
-                    Transform text3 = button3.transform.GetChild(3);
+                    Transform text2 = button2.transform.GetChild(0);
+                    Transform text3 = button3.transform.GetChild(0);
 
 
                     text1.gameObject.GetComponent<Text>().text = "Take me only\n press 1";
                     text2.gameObject.GetComponent<Text>().text = "Take my sister\n press 2";
                     text3.gameObject.GetComponent<Text>().text = "Play Rock Paper Scissor\n press3";
-
-
-
-                    if (Input.GetKeyDown(KeyCode.Alpha1))
-                    {
-
-                        a_Action_3.isStarted = true;
-                    }
-                    else if (Input.GetKeyDown(KeyCode.Alpha2))
-                    {
-                        a_Action_4.isStarted = true;
-                    }
-                    else if (Input.GetKeyDown(KeyCode.Alpha2))
-                    {
-                        a_Action_5.isStarted = true;
-                    }
-
-                    a_Action_2.isCompleted = true;
+                   
                 }
             }
+
+
+            if (Input.GetKeyDown(KeyCode.Alpha1) && a_Action_2.isCompleted && !a_Action_5.isCompleted)
+            {
+
+                a_Action_3.isStarted = true;
+                Destroy(g_threeChoiceCanv);
+                g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_3.l_DialogueBoxes);
+                a_Action_3.isPlaying = true;
+
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && a_Action_2.isCompleted && !a_Action_5.isCompleted)
+            {
+                a_Action_4.isStarted = true;
+                Destroy(g_threeChoiceCanv);
+                g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_4.l_DialogueBoxes);
+                a_Action_4.isPlaying = true;
+
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && a_Action_2.isCompleted && !a_Action_5.isCompleted)
+            {
+                a_Action_5.isStarted = true;
+                Destroy(g_threeChoiceCanv);
+                g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_5.l_DialogueBoxes);
+                a_Action_5.isPlaying = true;
+            }
+
+
+            if (a_Action_3.isPlaying && ! a_Action_3.isCompleted)
+            {
+                TraverseDBox(3);
+                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_3.l_DialogueBoxes.Count))
+                {
+                    a_Action_3.isCompleted = true;
+                    GameInitializer.StateInstance.isHasSon = true;
+                }
+            }
+
+           
+            if (a_Action_4.isPlaying && !a_Action_4.isCompleted)
+            {
+                TraverseDBox(4);
+                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_4.l_DialogueBoxes.Count))
+                {
+                    a_Action_4.isCompleted = true;
+                    GameInitializer.StateInstance.isHasDaughter = true;
+                }
+            }
+
+            if (a_Action_5.isPlaying && !a_Action_5.isCompleted)
+            {
+                TraverseDBox(5);
+                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_5.l_DialogueBoxes.Count))
+                {
+                    a_Action_5.isCompleted = true;
+                }
+            }
+
+            if (a_Action_5.isCompleted && !showed_decision_rps)
+            {
+                g_threeChoiceCanv = Instantiate(ThreeChoice);
+                Transform panel = g_threeChoiceCanv.transform.GetChild(0);
+
+                Transform button1 = panel.transform.GetChild(0);
+                Transform button2 = panel.transform.GetChild(1);
+                Transform button3 = panel.transform.GetChild(2);
+
+                Transform text1 = button1.transform.GetChild(0);
+                Transform text2 = button2.transform.GetChild(0);
+                Transform text3 = button3.transform.GetChild(0);
+
+
+                text1.gameObject.GetComponent<Text>().text = "ROCK\n press 1";
+                text2.gameObject.GetComponent<Text>().text = "PAPER\n press 2";
+                text3.gameObject.GetComponent<Text>().text = "SCISSOR\n press3";
+
+                showed_decision_rps = true;
+
+            }
+
+            if (a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                a_Action_6.isStarted = true;
+                Destroy(g_threeChoiceCanv);
+                g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_6.l_DialogueBoxes);
+                a_Action_6.isPlaying = true;
+            }
+            else if (a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    a_Action_7.isStarted = true;
+                    Destroy(g_threeChoiceCanv);
+                    g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_7.l_DialogueBoxes);
+                    a_Action_7.isPlaying = true;
+                }
+            else if (a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                a_Action_8.isStarted = true;
+                Destroy(g_threeChoiceCanv);
+                g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_8.l_DialogueBoxes);
+                a_Action_8.isPlaying = true;
+            }
+
+            if (a_Action_6.isPlaying && !a_Action_6.isCompleted)
+            {
+                TraverseDBox(6);
+                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_6.l_DialogueBoxes.Count))
+                {
+                    a_Action_6.isCompleted = true;
+                    GameInitializer.StateInstance.isHasDaughter = true;
+                    GameInitializer.StateInstance.isHasSon = true;
+                }
+            }
+            if (a_Action_7.isPlaying && !a_Action_7.isCompleted)
+            {
+                TraverseDBox(7);
+                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_7.l_DialogueBoxes.Count))
+                {
+                    a_Action_7.isCompleted = true;
+                    GameInitializer.StateInstance.isHasDaughter = true;
+                    GameInitializer.StateInstance.isHasSon = true;
+                }
+            }
+
+            if (a_Action_8.isPlaying && !a_Action_8.isCompleted)
+            {
+                TraverseDBox(8);
+                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_8.l_DialogueBoxes.Count))
+                {
+                    a_Action_8.isCompleted = true;
+                
+                }
+            }
+
+            if (a_Action_0.isCompleted && a_Action_1.isCompleted && a_Action_2.isCompleted &&
+                (a_Action_3.isCompleted || a_Action_4.isCompleted || a_Action_5.isCompleted) &&
+                a_Action_6.isCompleted || a_Action_7.isCompleted || a_Action_8.isCompleted)
+            {
+                a_Action_9.isStarted = true;
+                //    g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_9.l_DialogueBoxes);
+                //  a_Action_9.isPlaying = true;
+                g_Elevator.SetActive(true);
+            }
+
+
+
+            //if (a_Action_9.isPlaying && !a_Action_9.isCompleted)
+            //{
+            //    TraverseDBox(9);
+            //    if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_9.l_DialogueBoxes.Count))
+            //    {
+            //     //   a_Action_9.isCompleted = true;
+            
+                    
+            //    }
+            //}
 
 
         }

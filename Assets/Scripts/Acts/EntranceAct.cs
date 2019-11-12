@@ -80,8 +80,7 @@ public class EntranceAct : MonoBehaviour
             if (GameInitializer.StateInstance.l_Actions[0].isCompleted && GameInitializer.StateInstance.l_Actions[1].isCompleted)
             {
                    SarahRoom.SetActive(true);
-              //  NoahRoom.SetActive(true);
-}
+            }
         }    
     }
 
