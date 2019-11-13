@@ -220,11 +220,11 @@ public class GameInitializer : MonoBehaviour
 
         Dialogue d_PlayRPS1 = new Dialogue("So no you play over us two, either take us both, or leave us forever as you always did.", img_Son);
 
-        Dialogue d_chooseRock1 = new Dialogue("You knew that i would choose paper because of the origami, good job !",img_Son);
+        Dialogue d_chooseRock1 = new Dialogue("WRONG CHOICE !\n you lost us both", img_Son);
 
         Dialogue d_choosePaper1 = new Dialogue("You knew that you should choose paper because of the origami, good job !", img_Son);
 
-        Dialogue d_chooseScissor1 = new Dialogue("WRONG CHOICE !\n you lost us both", img_Son);
+        Dialogue d_chooseScissor1 = new Dialogue("You knew that you should choose paper because of the origami, good job !", img_Son);
 
 
         Dialogue d_leaveNoahRoom1 = new Dialogue("Let's search for my wife!", img_Father);

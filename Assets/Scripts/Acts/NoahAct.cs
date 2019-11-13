@@ -41,6 +41,8 @@ public class NoahAct : MonoBehaviour
 
     bool showed_decision_rps;
 
+    bool branch1;
+
 
     GameObject g_DboxObj;
 
@@ -93,6 +95,11 @@ public class NoahAct : MonoBehaviour
 
         if (GameInitializer.StateInstance.e_CurrentAct == Act.NOAH_ROOM)
         {
+            if (GameInitializer.StateInstance.isHasDaughter && !a_Action_0.isStarted) {
+                branch1 = true;
+            }
+
+
 
             if (NoahSeen && !a_Action_0.isStarted  && !a_Action_0.isCompleted && (a_Action_1.isCompleted || ! a_Action_1.isStarted) )
             {
@@ -136,7 +143,17 @@ public class NoahAct : MonoBehaviour
                 a_Action_2.isPlaying = true;
 
             }
-            if (a_Action_2.isStarted && a_Action_2.isPlaying && !a_Action_2.isCompleted)
+
+            if (a_Action_2.isStarted && a_Action_2.isPlaying && !a_Action_2.isCompleted && !branch1)
+            {
+                TraverseDBox(2);
+                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_2.l_DialogueBoxes.Count))
+                {
+                    a_Action_2.isCompleted = true;
+                }
+            }
+
+            if (a_Action_2.isStarted && a_Action_2.isPlaying && !a_Action_2.isCompleted && branch1)
             {
                 TraverseDBox(2);
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_2.l_DialogueBoxes.Count))
@@ -163,7 +180,7 @@ public class NoahAct : MonoBehaviour
             }
 
 
-            if (Input.GetKeyDown(KeyCode.Alpha1) && a_Action_2.isCompleted && !a_Action_5.isCompleted)
+            if (Input.GetKeyDown(KeyCode.Alpha1) && a_Action_2.isCompleted && !a_Action_5.isCompleted && branch1)
             {
 
                 a_Action_3.isStarted = true;
@@ -172,7 +189,7 @@ public class NoahAct : MonoBehaviour
                 a_Action_3.isPlaying = true;
 
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2) && a_Action_2.isCompleted && !a_Action_5.isCompleted)
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && a_Action_2.isCompleted && !a_Action_5.isCompleted && branch1)
             {
                 a_Action_4.isStarted = true;
                 Destroy(g_threeChoiceCanv);
@@ -180,7 +197,7 @@ public class NoahAct : MonoBehaviour
                 a_Action_4.isPlaying = true;
 
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3) && a_Action_2.isCompleted && !a_Action_5.isCompleted)
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && a_Action_2.isCompleted && !a_Action_5.isCompleted && branch1)
             {
                 a_Action_5.isStarted = true;
                 Destroy(g_threeChoiceCanv);
@@ -189,7 +206,7 @@ public class NoahAct : MonoBehaviour
             }
 
 
-            if (a_Action_3.isPlaying && ! a_Action_3.isCompleted)
+            if (a_Action_3.isPlaying && ! a_Action_3.isCompleted && branch1)
             {
                 TraverseDBox(3);
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_3.l_DialogueBoxes.Count))
@@ -200,7 +217,7 @@ public class NoahAct : MonoBehaviour
             }
 
            
-            if (a_Action_4.isPlaying && !a_Action_4.isCompleted)
+            if (a_Action_4.isPlaying && !a_Action_4.isCompleted && branch1)
             {
                 TraverseDBox(4);
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_4.l_DialogueBoxes.Count))
@@ -210,7 +227,7 @@ public class NoahAct : MonoBehaviour
                 }
             }
 
-            if (a_Action_5.isPlaying && !a_Action_5.isCompleted)
+            if (a_Action_5.isPlaying && !a_Action_5.isCompleted && branch1)
             {
                 TraverseDBox(5);
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_5.l_DialogueBoxes.Count))
@@ -219,7 +236,7 @@ public class NoahAct : MonoBehaviour
                 }
             }
 
-            if (a_Action_5.isCompleted && !showed_decision_rps)
+            if ( (a_Action_5.isCompleted && !showed_decision_rps&& branch1) || ( a_Action_2.isCompleted&&!showed_decision_rps && !branch1 ))
             {
                 g_threeChoiceCanv = Instantiate(ThreeChoice);
                 Transform panel = g_threeChoiceCanv.transform.GetChild(0);
@@ -241,21 +258,24 @@ public class NoahAct : MonoBehaviour
 
             }
 
-            if (a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha1))
+            if ( (a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha1)&& branch1)
+                || (a_Action_2.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha1)&& !branch1 ))
             {
                 a_Action_6.isStarted = true;
                 Destroy(g_threeChoiceCanv);
                 g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_6.l_DialogueBoxes);
                 a_Action_6.isPlaying = true;
             }
-            else if (a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha2))
+            else if ((a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha2)&&branch1) 
+                || (a_Action_2.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha2) && !branch1) )
                 {
                     a_Action_7.isStarted = true;
                     Destroy(g_threeChoiceCanv);
                     g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_7.l_DialogueBoxes);
                     a_Action_7.isPlaying = true;
                 }
-            else if (a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha3))
+            else if ((a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha3)&&branch1)
+                || (a_Action_2.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha3) && !branch1 ))
             {
                 a_Action_8.isStarted = true;
                 Destroy(g_threeChoiceCanv);
@@ -269,8 +289,7 @@ public class NoahAct : MonoBehaviour
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_6.l_DialogueBoxes.Count))
                 {
                     a_Action_6.isCompleted = true;
-                    GameInitializer.StateInstance.isHasDaughter = true;
-                    GameInitializer.StateInstance.isHasSon = true;
+                 
                 }
             }
             if (a_Action_7.isPlaying && !a_Action_7.isCompleted)
@@ -279,8 +298,15 @@ public class NoahAct : MonoBehaviour
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_7.l_DialogueBoxes.Count))
                 {
                     a_Action_7.isCompleted = true;
-                    GameInitializer.StateInstance.isHasDaughter = true;
-                    GameInitializer.StateInstance.isHasSon = true;
+                    if (branch1)
+                    {
+                        GameInitializer.StateInstance.isHasDaughter = true;
+                        GameInitializer.StateInstance.isHasSon = true;
+                    }
+                    else
+                    {
+                        GameInitializer.StateInstance.isHasSon = true;
+                    }
                 }
             }
 
@@ -290,7 +316,16 @@ public class NoahAct : MonoBehaviour
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_8.l_DialogueBoxes.Count))
                 {
                     a_Action_8.isCompleted = true;
-                
+                    if (branch1)
+                    {
+                        GameInitializer.StateInstance.isHasDaughter = true;
+                        GameInitializer.StateInstance.isHasSon = true;
+                    }
+                    else
+                    {
+                        GameInitializer.StateInstance.isHasSon = true;
+                    }
+
                 }
             }
 
