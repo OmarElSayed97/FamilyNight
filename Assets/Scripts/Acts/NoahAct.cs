@@ -50,8 +50,13 @@ public class NoahAct : MonoBehaviour
     [SerializeField]
     private GameObject g_Elevator;
 
+    [SerializeField]
+    private GameObject g_NoahCharacter;
 
-
+    private Animator anim;
+    private bool isAnim1Played;
+    private bool isAnim2Played;
+    
     GameObject g_threeChoiceCanv;
 
 
@@ -60,11 +65,12 @@ public class NoahAct : MonoBehaviour
 
 
 
+
     // Start is called before the first frame update
     void Start()
     {
 
-
+        anim = g_NoahCharacter.GetComponent<Animator>();
 
 
         GameInitializer.StateInstance.e_CurrentAct = Act.NOAH_ROOM;
@@ -122,9 +128,19 @@ public class NoahAct : MonoBehaviour
             }
             if (a_Action_1.isStarted && a_Action_1.isPlaying && !a_Action_1.isCompleted && (a_Action_0.isCompleted || !a_Action_0.isStarted))
             {
+
                 TraverseDBox(1);
+                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == 1 && !isAnim1Played)
+                {
+
+                    anim.SetTrigger("SonStands");
+                    g_NoahCharacter.transform.position = new Vector3(g_NoahCharacter.transform.position.x, g_NoahCharacter.transform.position.y + 1, g_NoahCharacter.transform.position.z - 1);
+                    isAnim1Played = true;
+                }
+
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_1.l_DialogueBoxes.Count))
                 {
+                    anim.SetTrigger("SonTurn");
                     a_Action_1.isCompleted = true;
                 }
             }

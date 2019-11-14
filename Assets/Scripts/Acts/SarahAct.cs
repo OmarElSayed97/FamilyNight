@@ -15,6 +15,13 @@ public class SarahAct : MonoBehaviour
     [SerializeField] 
     private GameObject g_TwoChoiceCanvas;
 
+    [SerializeField]
+    private GameObject ELevatorLight;
+
+
+    private Animator anim;
+
+    
     [SerializeField] 
     private GameObject g_NoahRoom;
     
@@ -37,6 +44,8 @@ public class SarahAct : MonoBehaviour
     public static bool BedSeen;
     public static bool PostersSeen;
     public static bool SarahSeen;
+    private bool IsAnim1Played;
+    private bool IsAnim2Played;
 
 
 
@@ -55,7 +64,6 @@ public class SarahAct : MonoBehaviour
         BedSeen = false;
         PostersSeen = false;
         SarahSeen = false;
-
 
     }
 
@@ -96,7 +104,9 @@ public class SarahAct : MonoBehaviour
             if (a_Action_0.isCompleted && a_Action_1.isCompleted)
             {
                 g_SarahCharacter.SetActive(true);
-                
+                anim = g_SarahCharacter.GetComponent<Animator>();
+               
+
             }
 
             if (a_Action_0.isCompleted && a_Action_1.isCompleted && SarahSeen && !a_Action_2.isPlaying)
@@ -113,6 +123,25 @@ public class SarahAct : MonoBehaviour
                 {
                     a_Action_2.isCompleted = true;
                 }
+               
+
+                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == 1 && !IsAnim1Played)
+                {
+                    
+                   anim.SetTrigger("SarahStands");
+                   g_SarahCharacter.transform.position = new Vector3(g_SarahCharacter.transform.position.x, g_SarahCharacter.transform.position.y + 2, g_SarahCharacter.transform.position.z);
+                   IsAnim1Played = true;
+                }
+
+                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == 4 && !IsAnim2Played)
+                {
+
+                    anim.SetTrigger("SarahSuicides");
+                    g_SarahCharacter.transform.position = new Vector3(g_SarahCharacter.transform.position.x, g_SarahCharacter.transform.position.y, g_SarahCharacter.transform.position.z);
+
+                    g_SarahCharacter.transform.rotation = new Quaternion(g_SarahCharacter.transform.rotation.x, g_SarahCharacter.transform.rotation.y + 180, g_SarahCharacter.transform.rotation.z,0);
+                    IsAnim2Played = true;
+                }
             }
 
             if (a_Action_0.isCompleted && a_Action_1.isCompleted && a_Action_2.isCompleted && !a_Action_3.isStarted)
@@ -126,11 +155,11 @@ public class SarahAct : MonoBehaviour
                 t_Button2 = t_Panel.GetChild(1);
                 t_Text2 = t_Button2.GetChild(0);
                 
-                t_Text1.gameObject.GetComponent<Text>().text = "Right Movie \n Press 1 to choose";
-                t_Text2.gameObject.GetComponent<Text>().text = "Wrong Movie \n Press 2 to choose";
+                t_Text1.gameObject.GetComponent<Text>().text = "Harry Potter \n Press 1 to choose";
+                t_Text2.gameObject.GetComponent<Text>().text = "Lord Of The Rings \n Press 2 to choose";
             }
 
-            if (Input.GetKeyDown(KeyCode.Alpha1) && a_Action_3.isStarted)
+            if (Input.GetKeyDown(KeyCode.Alpha1) && a_Action_3.isStarted  && !a_Action_4.isPlaying)
             {
                 GameInitializer.StateInstance.isHasDaughter = true;
                 Destroy(g_Canvas);
@@ -148,13 +177,17 @@ public class SarahAct : MonoBehaviour
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_4.l_DialogueBoxes.Count))
                 {
                     a_Action_4.isCompleted = true;
+                    g_SarahCharacter.SetActive(false);
                 }
+
             }
-            if (Input.GetKeyDown(KeyCode.Alpha2)&& a_Action_3.isStarted)
+            if (Input.GetKeyDown(KeyCode.Alpha2)&& a_Action_3.isStarted && !a_Action_5.isPlaying )
             {
                 Destroy(g_Canvas);
                 a_Action_3.isCompleted = true;
-                
+
+                anim.SetTrigger("SarahDying");
+                g_SarahCharacter.transform.position = new Vector3(g_SarahCharacter.transform.position.x, g_SarahCharacter.transform.position.y - 2, g_SarahCharacter.transform.position.z - 0.5f);
                 a_Action_5.isStarted = true;
                 g_DboxObj =  DBox.InitializeDBox(DBoxprefab, a_Action_5.l_DialogueBoxes);
                 a_Action_5.isPlaying = true;
@@ -175,6 +208,8 @@ public class SarahAct : MonoBehaviour
                 a_Action_5.isCompleted)
             {
                 g_NoahRoom.SetActive(true);
+                if(ELevatorLight)
+                    ELevatorLight.SetActive(true);
             }
         }
         
@@ -188,4 +223,6 @@ public class SarahAct : MonoBehaviour
             g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex++;
         }
     }
+
+    
 }

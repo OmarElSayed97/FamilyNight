@@ -102,7 +102,8 @@ namespace Structs
         TALK_UNKNOWN_CHARACTER_WITH_OUT_CHILD,
         GO_ELEVATOR,
         GOES_RIGHT_FLOOR,
-        GOES_WRONG_FLOOR
+        GOES_WRONG_FLOOR,
+        SEES_UNKNOWN_CHARACTER
     }
     
     public enum Act

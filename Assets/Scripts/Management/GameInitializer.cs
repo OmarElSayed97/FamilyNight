@@ -13,7 +13,7 @@ public class GameInitializer : MonoBehaviour
     public static List<Action> l_Act_Sarah;
     public static List<Action> l_Act_Noah;
     public static List<Action> l_Act_Elevator;
-    public static List<Action> l_Act_Wife;
+    public static List<Action> l_Act_Finale;
    
     
     public List<Dialogue> l_WonderingD;
@@ -38,6 +38,7 @@ public class GameInitializer : MonoBehaviour
     public List<Dialogue> l_LeaveRoomWithOutSarah;
     public List<Dialogue> l_TalkToUnknownWithChild;
     public List<Dialogue> l_TalkToUnknownWithOutChild;
+    public List<Dialogue> l_SeesUknownCharacter;
 
 
 
@@ -89,6 +90,8 @@ public class GameInitializer : MonoBehaviour
         Action a_GoesRightFloor = new Action(ActionsNames.GOES_RIGHT_FLOOR);
         Action a_GoesWrongFloor = new Action(ActionsNames.GOES_WRONG_FLOOR);
 
+        Action a_SeesUknownCharacter = new Action(ActionsNames.SEES_UNKNOWN_CHARACTER, l_SeesUknownCharacter);
+
         l_Act_Entrance.Add(a_Wondering);
         l_Act_Entrance.Add(a_ListenSarahVoice);
 
@@ -116,7 +119,7 @@ public class GameInitializer : MonoBehaviour
        l_Act_Elevator.Add(a_GoesRightFloor);
        l_Act_Elevator.Add(a_GoesWrongFloor);
 
-
+        l_Act_Finale.Add(a_SeesUknownCharacter);         
     }
 
     private void InitializeDialogues()
@@ -136,7 +139,8 @@ public class GameInitializer : MonoBehaviour
         
         l_TalkToUnknownWithChild = new List<Dialogue>();
         l_TalkToUnknownWithOutChild = new List<Dialogue>();
-        
+
+        l_SeesUknownCharacter = new List<Dialogue>();
        
         
 
@@ -153,7 +157,8 @@ public class GameInitializer : MonoBehaviour
         Dialogue d_SeeSarah2 = new Dialogue("You have never loved me enough\nYou literally know nothing about me", img_Daugther);
         Dialogue d_SeeSarah3 = new Dialogue("What do you want me to do?", img_Father);
         Dialogue d_SeeSarah4 = new Dialogue("Can you atleast mention my favorite movie!!", img_Daugther);
-        Dialogue d_LeaveRoomWithSarah = new Dialogue("Thanks God,\nYou are FINALLY BACK\n Lets Go find your brother", img_Father);
+        Dialogue d_LeaveRoomWithSarah1 = new Dialogue("Dad?\nWhat happened? I don't remember anything!", img_Daugther_Good);
+        Dialogue d_LeaveRoomWithSarah2 = new Dialogue("Thanks God,\nYou are FINALLY BACK\n Lets Go find your brother", img_Father);
         Dialogue d_LeaveRoomWithOutSarah = new Dialogue("SARAAAAAAAAAH!!!", img_Father_Angry);
 
         Dialogue d_TalkToUnknownWithChild1 = new Dialogue("Heyyy You!",img_UnknownCharacter);
@@ -164,6 +169,18 @@ public class GameInitializer : MonoBehaviour
         Dialogue d_TalkToUnknownWithOutChild2 = new Dialogue("Did you wonder where is your wife??",img_UnknownCharacter);
         Dialogue d_TalkToUnknownWithOutChild3 = new Dialogue("Uhhhh??? \n Who's that, WHERE IS SHE?????????",img_Father_Angry);
         Dialogue d_TalkToUnknownWithOutChild4 = new Dialogue("Hahahaha :D \n I feel pitty for you \n GO check her out in the basement floor",img_UnknownCharacter);
+
+        Dialogue d_SeesUknownCharacter1 = new Dialogue("Hello Smith \nHow are your kids? HAHAHAAA", img_UnknownCharacter);
+        Dialogue d_SeesUknownCharacter2 = new Dialogue("Who are you ???! \nAnd why do you look so similar?!!!", img_Father);
+        Dialogue d_SeesUknownCharacter3 = new Dialogue("Similar!! \nHAHAHAHAAAAA", img_UnknownCharacter);
+        Dialogue d_SeesUknownCharacter4 = new Dialogue("No Smith not similar\nI'M YOU", img_UnknownCharacter);
+        Dialogue d_SeesUknownCharacter5 = new Dialogue("I don't understand\nWhat do you want from us?", img_Father_Angry);
+        Dialogue d_SeesUknownCharacter6 = new Dialogue("Two years ago you were involved in a car accident, an accident were I have lost my wife and kids! I have lost everything! And you were not convicted", img_UnknownCharacter);
+        Dialogue d_SeesUknownCharacter7 = new Dialogue("You are the reason I have lived in hell for years", img_UnknownCharacter);
+        Dialogue d_SeesUknownCharacter8 = new Dialogue("BUT THIS WAS AN ACCIDENT!!! ", img_Father);
+        Dialogue d_SeesUknownCharacter9 = new Dialogue("Yes Smith yes it was an accident and what I did today was also an accident", img_UnknownCharacter);
+        Dialogue d_SeesUknownCharacter10 = new Dialogue("What have you done to them?! ", img_Father);
+        Dialogue d_SeesUknownCharacter11 = new Dialogue("I drugged all your family\nI'm sorry Smith, But you had to pay off", img_UnknownCharacter);
 
         l_WonderingD.Add(d_Wondering1);
         l_WonderingD.Add(d_Wondering2);
@@ -177,7 +194,8 @@ public class GameInitializer : MonoBehaviour
         l_SeeSarahD.Add(d_SeeSarah2);
         l_SeeSarahD.Add(d_SeeSarah3);
         l_SeeSarahD.Add(d_SeeSarah4);
-        l_LeaveRoomWithSarah.Add(d_LeaveRoomWithSarah);
+        l_LeaveRoomWithSarah.Add(d_LeaveRoomWithSarah1);
+        l_LeaveRoomWithSarah.Add(d_LeaveRoomWithSarah2);
         l_LeaveRoomWithOutSarah.Add(d_LeaveRoomWithOutSarah);
 
         l_TalkToUnknownWithChild.Add(d_TalkToUnknownWithChild1);
@@ -188,7 +206,19 @@ public class GameInitializer : MonoBehaviour
         l_TalkToUnknownWithOutChild.Add(d_TalkToUnknownWithOutChild2);
         l_TalkToUnknownWithOutChild.Add(d_TalkToUnknownWithOutChild3);
         l_TalkToUnknownWithOutChild.Add(d_TalkToUnknownWithOutChild4);
-        
+
+        l_SeesUknownCharacter.Add(d_SeesUknownCharacter1);
+        l_SeesUknownCharacter.Add(d_SeesUknownCharacter2);
+        l_SeesUknownCharacter.Add(d_SeesUknownCharacter3);
+        l_SeesUknownCharacter.Add(d_SeesUknownCharacter4);
+        l_SeesUknownCharacter.Add(d_SeesUknownCharacter5);
+        l_SeesUknownCharacter.Add(d_SeesUknownCharacter6);
+        l_SeesUknownCharacter.Add(d_SeesUknownCharacter7);
+        l_SeesUknownCharacter.Add(d_SeesUknownCharacter8);
+        l_SeesUknownCharacter.Add(d_SeesUknownCharacter9);
+        l_SeesUknownCharacter.Add(d_SeesUknownCharacter10);
+        l_SeesUknownCharacter.Add(d_SeesUknownCharacter11);
+
         // dialogues for noah
         l_enteringNoahRoomD = new List<Dialogue>();
         l_seeOrigamiD = new List<Dialogue>();
@@ -269,7 +299,8 @@ public class GameInitializer : MonoBehaviour
         l_Act_Sarah = new List<Action>();
         l_Act_Noah = new List<Action>();
         l_Act_Elevator = new List<Action>();
-        l_Act_Wife = new List<Action>();
+        l_Act_Finale = new List<Action>();
+
         InitializeDialogues();
         InitializeActions();
         

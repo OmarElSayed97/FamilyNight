@@ -5,11 +5,21 @@ using UnityEngine;
 public class flashLightController : MonoBehaviour
 {
 
-  
-   // public GameObject lightObject;
-   // public float maxEnergy;
-  //  public float currentEnergy;
+    [SerializeField]
+    public GameObject SarahDoor;
+    [SerializeField]
+    public GameObject SarahDoorLight;
+    [SerializeField]
+    public AudioSource audioSource;
+    [SerializeField]
+    public GameObject NoahDoor;
+    [SerializeField]
+    public GameObject ElevatorDoorLight;
+    [SerializeField]
+    public GameObject Elevator;
 
+    private bool isInsideElevator;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +35,18 @@ public class flashLightController : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, 10))
         {
             Debug.DrawRay(transform.position, transform.forward*10);
-            if (hit.collider.gameObject.name == "door")
+            if (hit.collider.gameObject.name == "SarahDoor1")
             {
-                hit.collider.gameObject.SetActive(false);
+                Destroy(SarahDoorLight);
+                SarahDoor.GetComponent<Animator>().Play("DoorOpening1");
+                audioSource.Play();
+                hit.collider.gameObject.name = "SarahDoorOpened";
+            }
+            if (hit.collider.gameObject.name == "NoahDoor1")
+            {
+                NoahDoor.GetComponent<Animator>().Play("DoorOpening1");
+                audioSource.Play();
+                hit.collider.gameObject.name = "NoahDoorOpened";
             }
 
             if (hit.collider.gameObject.name == "Bed")
@@ -53,12 +72,14 @@ public class flashLightController : MonoBehaviour
                 NoahAct.OrigamiSeen = true;
                 Debug.Log("seen Origami");
             }
-            if (hit.collider.gameObject.name == "Door1" || hit.collider.gameObject.name == "Door2" )
+            if ((hit.collider.gameObject.name == "Door1" || hit.collider.gameObject.name == "Door2") && !isInsideElevator && GameInitializer.StateInstance.e_CurrentAct == Structs.Act.ELEVATOR)
             {
+                isInsideElevator = true;
                 ElevatorAct.ElevatorSeen = true;
-                hit.collider.gameObject.SetActive(false);
+                Destroy(ElevatorDoorLight);
+                Elevator.GetComponent<Animator>().Play("ElevatorOpening");
             }
-
+           
 
         }
 

@@ -17,25 +17,25 @@ public class EntranceAct : MonoBehaviour
     private GameObject SarahRoom;
 
     [SerializeField]
+    public GameObject SarahDoorLight;
+
+    [SerializeField]
     private GameObject Timeline1;
+
     [SerializeField]
     private GameObject Cameras;
 
-    [SerializeField]
-    private GameObject NoahRoom;
 
-    [SerializeField]
-    private GameObject FatherWalking;
+   
 
-    [SerializeField]
-    private GameObject FPP;
 
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         
         StartCoroutine(PlayCutScene1());
-       
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -61,7 +61,7 @@ public class EntranceAct : MonoBehaviour
                 GameInitializer.StateInstance.l_Actions[1].isStarted = true;
 
 
-                StartCoroutine(WaitingAfterAct(2));
+                StartCoroutine(PlayClip());
 
 
 
@@ -79,11 +79,20 @@ public class EntranceAct : MonoBehaviour
 
             if (GameInitializer.StateInstance.l_Actions[0].isCompleted && GameInitializer.StateInstance.l_Actions[1].isCompleted)
             {
-                   SarahRoom.SetActive(true);
+                SarahDoorLight.SetActive(true);     
+                SarahRoom.SetActive(true);
             }
         }    
     }
 
+    private IEnumerator PlayClip()
+    {
+        audioSource.Play();
+        yield return new WaitForSeconds(audioSource.clip.length);
+        GameInitializer.StateInstance.l_Actions[1].isPlaying = true;
+        g_DboxObj = DBox.InitializeDBox(DBoxprefab, GameInitializer.StateInstance.l_Actions[1].l_DialogueBoxes);
+
+    }
 
     IEnumerator StartWondering()
     {
@@ -93,13 +102,7 @@ public class EntranceAct : MonoBehaviour
         GameInitializer.StateInstance.l_Actions[0].isPlaying = true;      
     }
 
-    IEnumerator WaitingAfterAct(float sec)
-    {
-        yield return new WaitForSeconds(sec);
-        GameInitializer.StateInstance.l_Actions[1].isPlaying = true;
-        g_DboxObj = DBox.InitializeDBox(DBoxprefab, GameInitializer.StateInstance.l_Actions[1].l_DialogueBoxes);
-
-    }
+    
 
     void TraverseDBox(int i)
     {
