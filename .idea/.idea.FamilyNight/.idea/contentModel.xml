@@ -133,8 +133,11 @@
             <e p="ActSample.cs" t="Include" />
             <e p="ElevatorAct.cs" t="Include" />
             <e p="EntranceAct.cs" t="Include" />
+            <e p="FinaleAct.cs" t="Include" />
             <e p="NoahAct.cs" t="Include" />
+            <e p="NoahCharacter.cs" t="Include" />
             <e p="SarahAct.cs" t="Include" />
+            <e p="SarahCharacter.cs" t="Include" />
           </e>
           <e p="DBox" t="Include">
             <e p="DBox.cs" t="Include" />
@@ -143,12 +146,14 @@
           <e p="Management" t="Include">
             <e p="ElevatorCollider.cs" t="Include" />
             <e p="GameInitializer.cs" t="Include" />
+            <e p="playerMovement.cs" t="Include" />
             <e p="Structs.cs" t="Include" />
+            <e p="SurvivedFamily.cs" t="Include" />
+            <e p="UI.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
             <e p="flashLightController.cs" t="Include" />
             <e p="mouseLook.cs" t="Include" />
-            <e p="playerMovement.cs" t="Include" />
             <e p="ThirdPersonCameraController.cs" t="Include" />
             <e p="ThirdPersonCharacterController.cs" t="Include" />
           </e>

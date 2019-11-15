@@ -51,6 +51,17 @@ public class NoahAct : MonoBehaviour
     [SerializeField]
     private GameObject ELevatorLight;
 
+    [SerializeField] 
+    private GameObject Management;
+
+    [SerializeField] 
+    private AudioClip DecisionAudioClip;
+    
+    [SerializeField] 
+    private AudioClip SoundTrackAudioClip;
+    
+    private AudioSource MainAudioSource;
+    
     private Animator anim;
     private bool isAnim1Played;
     private bool isAnim2Played;
@@ -87,7 +98,7 @@ public class NoahAct : MonoBehaviour
 
         anim = g_NoahCharacter.GetComponent<Animator>();
 
-
+        MainAudioSource = Management.GetComponent<AudioSource>();
         GameInitializer.StateInstance.e_CurrentAct = Act.NOAH_ROOM;
         GameInitializer.StateInstance.l_Actions = GameInitializer.l_Act_Noah;
         a_Action_0 = GameInitializer.StateInstance.l_Actions[0]; //SEE_NOAH
@@ -189,6 +200,9 @@ public class NoahAct : MonoBehaviour
                 {
                     a_Action_2.isCompleted = true;
 
+                    MainAudioSource.clip = DecisionAudioClip;
+                    MainAudioSource.Play();
+                    
                     g_threeChoiceCanv = Instantiate(ThreeChoice);
                     Transform panel = g_threeChoiceCanv.transform.GetChild(0);
 
@@ -214,6 +228,8 @@ public class NoahAct : MonoBehaviour
 
                 a_Action_3.isStarted = true;
                 Destroy(g_threeChoiceCanv);
+                MainAudioSource.clip = SoundTrackAudioClip;
+                MainAudioSource.Play();
                 g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_3.l_DialogueBoxes);
                 a_Action_3.isPlaying = true;
 
@@ -222,6 +238,8 @@ public class NoahAct : MonoBehaviour
             {
                 a_Action_4.isStarted = true;
                 Destroy(g_threeChoiceCanv);
+                MainAudioSource.clip = SoundTrackAudioClip;
+                MainAudioSource.Play();
                 g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_4.l_DialogueBoxes);
                 a_Action_4.isPlaying = true;
 
@@ -230,6 +248,8 @@ public class NoahAct : MonoBehaviour
             {
                 a_Action_5.isStarted = true;
                 Destroy(g_threeChoiceCanv);
+                MainAudioSource.clip = SoundTrackAudioClip;
+                MainAudioSource.Play();
                 g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_5.l_DialogueBoxes);
                 a_Action_5.isPlaying = true;
             }
@@ -270,6 +290,8 @@ public class NoahAct : MonoBehaviour
             {
 
                 RPScards.SetActive(true);
+                MainAudioSource.clip = DecisionAudioClip;
+                MainAudioSource.Play();
                 g_threeChoiceCanv = Instantiate(ThreeChoice);
                 Transform panel = g_threeChoiceCanv.transform.GetChild(0);
 
@@ -295,6 +317,8 @@ public class NoahAct : MonoBehaviour
             {
                 a_Action_6.isStarted = true;
                 Destroy(g_threeChoiceCanv);
+                MainAudioSource.clip = SoundTrackAudioClip;
+                MainAudioSource.Play();
                 g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_6.l_DialogueBoxes);
                 a_Action_6.isPlaying = true;
             }
@@ -303,6 +327,8 @@ public class NoahAct : MonoBehaviour
                 {
                     a_Action_7.isStarted = true;
                     Destroy(g_threeChoiceCanv);
+                    MainAudioSource.clip = SoundTrackAudioClip;
+                    MainAudioSource.Play();
                     g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_7.l_DialogueBoxes);
                     a_Action_7.isPlaying = true;
                 }
@@ -311,6 +337,8 @@ public class NoahAct : MonoBehaviour
             {
                 a_Action_8.isStarted = true;
                 Destroy(g_threeChoiceCanv);
+                MainAudioSource.clip = SoundTrackAudioClip;
+                MainAudioSource.Play();
                 g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_8.l_DialogueBoxes);
                 a_Action_8.isPlaying = true;
             }

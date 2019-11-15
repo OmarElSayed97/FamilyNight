@@ -25,8 +25,11 @@ public class EntranceAct : MonoBehaviour
     [SerializeField]
     private GameObject Cameras;
 
+    [SerializeField]
+    private GameObject FlashLightCanvas;
 
-   
+    
+    public static GameObject go_FlashLightCanvas;   
 
 
     private AudioSource audioSource;
@@ -79,7 +82,8 @@ public class EntranceAct : MonoBehaviour
 
             if (GameInitializer.StateInstance.l_Actions[0].isCompleted && GameInitializer.StateInstance.l_Actions[1].isCompleted)
             {
-                SarahDoorLight.SetActive(true);     
+                SarahDoorLight.SetActive(true);
+                go_FlashLightCanvas = Instantiate(FlashLightCanvas);
                 SarahRoom.SetActive(true);
             }
         }    

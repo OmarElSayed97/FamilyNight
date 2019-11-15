@@ -15,7 +15,16 @@ public class ElevatorAct : MonoBehaviour
     [SerializeField]
     private GameObject g_Basement;
 
+    [SerializeField] 
+    private GameObject Management;
 
+    [SerializeField] 
+    private AudioClip DecisionAudioClip;
+    
+    [SerializeField] 
+    private AudioClip SoundTrackAudioClip;
+    
+    private AudioSource MainAudioSource;
 
     private GameObject g_DboxObj;
    
@@ -42,7 +51,7 @@ public class ElevatorAct : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        MainAudioSource = Management.GetComponent<AudioSource>();
         GameInitializer.StateInstance.e_CurrentAct = Act.ELEVATOR;
         GameInitializer.StateInstance.l_Actions = GameInitializer.l_Act_Elevator;
         a_Action_0 = GameInitializer.StateInstance.l_Actions[0];
@@ -92,6 +101,8 @@ public class ElevatorAct : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Alpha1) && a_Action_2.isStarted)
             {
+                MainAudioSource.clip = SoundTrackAudioClip;
+                MainAudioSource.Play();
                 IsBasementFloorChosen = true;
                 Destroy(g_Canvas);
                 a_Action_2.isCompleted = true;
@@ -101,6 +112,8 @@ public class ElevatorAct : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Alpha2) && a_Action_2.isStarted)
             {
+                MainAudioSource.clip = SoundTrackAudioClip;
+                MainAudioSource.Play();
                 IsFirstFloorChosen = true;
                 Destroy(g_Canvas);
                 a_Action_2.isCompleted = true;
@@ -129,6 +142,8 @@ public class ElevatorAct : MonoBehaviour
        
         yield return new WaitForSeconds(sec);
         a_Action_2.isPlaying = true;
+        MainAudioSource.clip = DecisionAudioClip;
+        MainAudioSource.Play();
         g_Canvas = Instantiate(g_TwoChoiceCanvas);
         t_Panel = g_Canvas.transform.GetChild(0);
        

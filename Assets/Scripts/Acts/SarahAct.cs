@@ -15,8 +15,16 @@ public class SarahAct : MonoBehaviour
     [SerializeField] 
     private GameObject g_TwoChoiceCanvas;
 
- 
+    [SerializeField] 
+    private GameObject Management;
 
+    [SerializeField] 
+    private AudioClip DecisionAudioClip;
+    
+    [SerializeField] 
+    private AudioClip SoundTrackAudioClip;
+    
+    private AudioSource MainAudioSource;
 
     private Animator anim;
 
@@ -52,6 +60,7 @@ public class SarahAct : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MainAudioSource = Management.GetComponent<AudioSource>();
         GameInitializer.StateInstance.e_CurrentAct = Act.SARAH_ROOM;
         GameInitializer.StateInstance.l_Actions = GameInitializer.l_Act_Sarah;
         a_Action_0 = GameInitializer.StateInstance.l_Actions[0];
@@ -63,7 +72,7 @@ public class SarahAct : MonoBehaviour
         BedSeen = false;
         PostersSeen = false;
         SarahSeen = false;
-
+        
     }
 
     // Update is called once per frame
@@ -145,6 +154,8 @@ public class SarahAct : MonoBehaviour
 
             if (a_Action_0.isCompleted && a_Action_1.isCompleted && a_Action_2.isCompleted && !a_Action_3.isStarted)
             {
+                MainAudioSource.clip = DecisionAudioClip;
+                MainAudioSource.Play();
                 a_Action_3.isStarted = true;
                 g_Canvas = Instantiate(g_TwoChoiceCanvas);
                 t_Panel = g_Canvas.transform.GetChild(0);
@@ -160,6 +171,8 @@ public class SarahAct : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Alpha1) && a_Action_3.isStarted  && !a_Action_4.isPlaying)
             {
+                MainAudioSource.clip = SoundTrackAudioClip;
+                MainAudioSource.Play();
                 GameInitializer.StateInstance.isHasDaughter = true;
                 Destroy(g_Canvas);
                 a_Action_3.isCompleted = true;
@@ -182,6 +195,8 @@ public class SarahAct : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Alpha2)&& a_Action_3.isStarted && !a_Action_5.isPlaying )
             {
+                MainAudioSource.clip = SoundTrackAudioClip;
+                MainAudioSource.Play();
                 Destroy(g_Canvas);
                 a_Action_3.isCompleted = true;
 

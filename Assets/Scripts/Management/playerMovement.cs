@@ -54,7 +54,11 @@ public class playerMovement : MonoBehaviour
 
 
         if (Input.GetKeyDown(KeyCode.F))
-        {    
+        {
+            if (EntranceAct.go_FlashLightCanvas != null)
+            {
+                Destroy(EntranceAct.go_FlashLightCanvas);
+            }
             isFlashLightEnabeled = !isFlashLightEnabeled;
             audioSource.clip = FlashlightClip;
             audioSource.Play();
