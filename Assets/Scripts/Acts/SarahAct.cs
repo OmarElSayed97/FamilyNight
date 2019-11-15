@@ -15,8 +15,7 @@ public class SarahAct : MonoBehaviour
     [SerializeField] 
     private GameObject g_TwoChoiceCanvas;
 
-    [SerializeField]
-    private GameObject ELevatorLight;
+ 
 
 
     private Animator anim;
@@ -208,8 +207,8 @@ public class SarahAct : MonoBehaviour
                 a_Action_5.isCompleted)
             {
                 g_NoahRoom.SetActive(true);
-                if(ELevatorLight)
-                    ELevatorLight.SetActive(true);
+
+               
             }
         }
         

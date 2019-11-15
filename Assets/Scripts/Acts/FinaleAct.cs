@@ -14,12 +14,7 @@ public class FinaleAct : MonoBehaviour
     [SerializeField]
     private GameObject DBoxprefab;
 
-    [SerializeField]
-    private GameObject Plane;
-
-    [SerializeField]
-    private GameObject Terrain;
-
+    
     private GameObject g_DboxObj;
     private bool isTimelinePlayed;
 
@@ -68,8 +63,7 @@ public class FinaleAct : MonoBehaviour
     {
         FinaleTimeline.GetComponent<PlayableDirector>().Play();
         yield return new WaitForSeconds((float)FinaleTimeline.GetComponent<PlayableDirector>().duration);
-        Plane.transform.position = new Vector3(-8.1f, -0.1f ,-23f);
-        Terrain.transform.position = new Vector3(-673f, 0f, 400f);
+       
         FinaleTimeline2.SetActive(true);
     }
 }

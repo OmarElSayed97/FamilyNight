@@ -5,6 +5,16 @@ using UnityEngine;
 public class SarahCharacter : MonoBehaviour
 {
     private AudioSource audioSource;
+
+
+    [SerializeField]
+    AudioClip HittingWall;
+
+    [SerializeField]
+    AudioClip JumpScare;
+
+
+    private bool IsClipPlayed;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +24,17 @@ public class SarahCharacter : MonoBehaviour
     // Update is called once per frame
     private void PlayHeadHitAudio()
     {
+        audioSource.clip = HittingWall;
         audioSource.Play();
+    }
+
+    private void Update()
+    {
+        if(SarahAct.SarahSeen && !IsClipPlayed)
+        {
+            IsClipPlayed = true;
+            audioSource.clip = JumpScare;
+            audioSource.Play();
+        }
     }
 }

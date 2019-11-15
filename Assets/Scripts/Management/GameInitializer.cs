@@ -144,43 +144,48 @@ public class GameInitializer : MonoBehaviour
        
         
 
-        Dialogue d_Wondering1 = new Dialogue("I'm hoooooome, I want the dinner ready in 5 min \n OR YOU WILL ALL GET GROUNDED", img_Father_Angry);
-        Dialogue d_Wondering2 = new Dialogue("Sarah...... , Noah.......", img_Father_Angry);
-        Dialogue d_Wondering3 = new Dialogue("Where is everyone?! \nYou better show up RIGHT NOW!", img_Father_Angry);
+        Dialogue d_Wondering1 = new Dialogue("Honey I'm home! Dinner better be ready\nI'm STARVING!", img_Father_Angry);
+        Dialogue d_Wondering2 = new Dialogue("Why is it so quiet?\nSarah...... , Noah.......", img_Father_Angry);
+        Dialogue d_Wondering3 = new Dialogue("Guys!! Where are you?!\nYou better show up RIGHT NOW!", img_Father_Angry);
 
         Dialogue d_SarahVoice1 = new Dialogue("Sarah??!", img_Father);
         Dialogue d_SarahVoice2 = new Dialogue("Is that you?? \nThis Laugh sounded really creepy (Thinking)", img_Father);
         
-        Dialogue d_SeeBed = new Dialogue("OMG!!! \n Shes not here", img_Father);
+        Dialogue d_SeeBed = new Dialogue("Oh my god!!! \nShe's not in her bed", img_Father);
         Dialogue d_SeePoster = new Dialogue("What are these?", img_Father);
-        Dialogue d_SeeSarah1 = new Dialogue("Saraaaah\nWhats happening?\nWhat are you doing in the corner over there?????", img_Father);
-        Dialogue d_SeeSarah2 = new Dialogue("You have never loved me enough\nYou literally know nothing about me", img_Daugther);
-        Dialogue d_SeeSarah3 = new Dialogue("What do you want me to do?", img_Father);
-        Dialogue d_SeeSarah4 = new Dialogue("Can you atleast mention my favorite movie!!", img_Daugther);
+        Dialogue d_SeeSarah1 = new Dialogue("Sarah!!\nYou freaked me out, are you okay?\nWhat are you doing in the corner over there?????", img_Father);
+        Dialogue d_SeeSarah2 = new Dialogue("Nothing is real! All was a lie, I have to end this", img_Daugther);
+        Dialogue d_SeeSarah3 = new Dialogue("What are you talking about?\nBaby please come down listen to your daddy", img_Father);
+        Dialogue d_SeeSarah4 = new Dialogue("How can I know that, the man told me everything was a lie.", img_Daugther);
+        Dialogue d_SeeSarah5 = new Dialogue("No honey, I am your dad, now listen to me and come here.", img_Father);
+        Dialogue d_SeeSarah6 = new Dialogue("If you are my dad? prove it to me, What is my favorite movie?", img_Daugther);
+        Dialogue d_SeeSarah7 = new Dialogue("OH MY GOD SHE IS GONNA KILL HERSELF!!\nHow should I know this there must be a clue in the room.", img_Father);
         Dialogue d_LeaveRoomWithSarah1 = new Dialogue("Dad?\nWhat happened? I don't remember anything!", img_Daugther_Good);
-        Dialogue d_LeaveRoomWithSarah2 = new Dialogue("Thanks God,\nYou are FINALLY BACK\n Lets Go find your brother", img_Father);
-        Dialogue d_LeaveRoomWithOutSarah = new Dialogue("SARAAAAAAAAAH!!!", img_Father_Angry);
+        Dialogue d_LeaveRoomWithSarah2 = new Dialogue("Thanks God,\nYou are FINALLY BACK\nLets Go find your brother", img_Father);
+        Dialogue d_LeaveRoomWithOutSarah1 = new Dialogue("You are wrong, he was right you are not my dad, I will end this now!!!", img_Father_Angry);
+        Dialogue d_LeaveRoomWithOutSarah2 = new Dialogue("SARAAAAAAAAAH!!!\n OH MY GOD, OH MY GOD WHAT JUST HAPPENED?!\nNOAH.....WHERE IS NOAH I SHOULD FIND HIM NOW AND GET OUT OF HERE", img_Father);
 
-        Dialogue d_TalkToUnknownWithChild1 = new Dialogue("Heyyy You!",img_UnknownCharacter);
-        Dialogue d_TalkToUnknownWithChild2 = new Dialogue("Good Job, so far\n But did you wonder where is your wife??",img_UnknownCharacter);
-        Dialogue d_TalkToUnknownWithChild3 = new Dialogue("Uhhhh??? \n Who's that, WHERE IS SHE?????????",img_Father_Angry);
-        Dialogue d_TalkToUnknownWithChild4 = new Dialogue("GO check her out in the First Floor",img_UnknownCharacter);
+        Dialogue d_TalkToUnknownWithChild1 = new Dialogue("Hey Smith...!",img_UnknownCharacter);
+        Dialogue d_TalkToUnknownWithChild2 = new Dialogue("Good Job, so far\nDo you want to join me and Helen? HAHAHAHA",img_UnknownCharacter);
+        Dialogue d_TalkToUnknownWithChild3 = new Dialogue("Uhhhh??? \nWho's that, WHERE ARE YOU?????????",img_Father_Angry);
+        Dialogue d_TalkToUnknownWithChild4 = new Dialogue("I told you I'm with your wife HAHAHAHAH\nCome and join us in the first floor\nBut hurry up cause my hands are really slippery and I am afraid I pull the trigger accidentally HAHAHAH",img_UnknownCharacter);
+        Dialogue d_TalkToUnknownWithChild5 = new Dialogue("Why whould he tell me about his place? he must be deceiving me, He know I would go to Helen's room in the first floor so he must be at the basement\nOr maybe he knows that I would think that way! ", img_Father_Angry);
         Dialogue d_TalkToUnknownWithOutChild1 = new Dialogue("Heyyy You!",img_UnknownCharacter);
         Dialogue d_TalkToUnknownWithOutChild2 = new Dialogue("Did you wonder where is your wife??",img_UnknownCharacter);
-        Dialogue d_TalkToUnknownWithOutChild3 = new Dialogue("Uhhhh??? \n Who's that, WHERE IS SHE?????????",img_Father_Angry);
+        Dialogue d_TalkToUnknownWithOutChild3 = new Dialogue("Uhhhh???\n Who's that, WHERE IS SHE?????????",img_Father_Angry);
         Dialogue d_TalkToUnknownWithOutChild4 = new Dialogue("Hahahaha :D \n I feel pitty for you \n GO check her out in the basement floor",img_UnknownCharacter);
 
-        Dialogue d_SeesUknownCharacter1 = new Dialogue("Hello Smith \nHow are your kids? HAHAHAAA", img_UnknownCharacter);
-        Dialogue d_SeesUknownCharacter2 = new Dialogue("Who are you ???! \nAnd why do you look so similar?!!!", img_Father);
+        Dialogue d_SeesUknownCharacter1 = new Dialogue("Hello Smith\nHow are your kids? HAHAHAAA", img_UnknownCharacter);
+        Dialogue d_SeesUknownCharacter2 = new Dialogue("Who are you ???!\nAnd why do you look so similar?!!!", img_Father);
         Dialogue d_SeesUknownCharacter3 = new Dialogue("Similar!! \nHAHAHAHAAAAA", img_UnknownCharacter);
         Dialogue d_SeesUknownCharacter4 = new Dialogue("No Smith not similar\nI'M YOU", img_UnknownCharacter);
         Dialogue d_SeesUknownCharacter5 = new Dialogue("I don't understand\nWhat do you want from us?", img_Father_Angry);
         Dialogue d_SeesUknownCharacter6 = new Dialogue("Two years ago you were involved in a car accident, an accident were I have lost my wife and kids! I have lost everything! And you were not convicted", img_UnknownCharacter);
         Dialogue d_SeesUknownCharacter7 = new Dialogue("You are the reason I have lived in hell for years", img_UnknownCharacter);
         Dialogue d_SeesUknownCharacter8 = new Dialogue("BUT THIS WAS AN ACCIDENT!!! ", img_Father);
-        Dialogue d_SeesUknownCharacter9 = new Dialogue("Yes Smith yes it was an accident and what I did today was also an accident", img_UnknownCharacter);
+        Dialogue d_SeesUknownCharacter9 = new Dialogue("Yes Smith yes, it was an accident and what I did today was also an accident", img_UnknownCharacter);
         Dialogue d_SeesUknownCharacter10 = new Dialogue("What have you done to them?! ", img_Father);
-        Dialogue d_SeesUknownCharacter11 = new Dialogue("I drugged all your family\nI'm sorry Smith, But you had to pay off", img_UnknownCharacter);
+        Dialogue d_SeesUknownCharacter11 = new Dialogue("I unleashed a hallucination gas in the whole house so you are all drugged and hallucinated right now\nI'm sorry Smith, But you had to pay off", img_UnknownCharacter);
 
         l_WonderingD.Add(d_Wondering1);
         l_WonderingD.Add(d_Wondering2);
@@ -194,14 +199,19 @@ public class GameInitializer : MonoBehaviour
         l_SeeSarahD.Add(d_SeeSarah2);
         l_SeeSarahD.Add(d_SeeSarah3);
         l_SeeSarahD.Add(d_SeeSarah4);
+        l_SeeSarahD.Add(d_SeeSarah5);
+        l_SeeSarahD.Add(d_SeeSarah6);
+        l_SeeSarahD.Add(d_SeeSarah7);
         l_LeaveRoomWithSarah.Add(d_LeaveRoomWithSarah1);
         l_LeaveRoomWithSarah.Add(d_LeaveRoomWithSarah2);
-        l_LeaveRoomWithOutSarah.Add(d_LeaveRoomWithOutSarah);
+        l_LeaveRoomWithOutSarah.Add(d_LeaveRoomWithOutSarah1);
+        l_LeaveRoomWithOutSarah.Add(d_LeaveRoomWithOutSarah2);
 
         l_TalkToUnknownWithChild.Add(d_TalkToUnknownWithChild1);
         l_TalkToUnknownWithChild.Add(d_TalkToUnknownWithChild2);
         l_TalkToUnknownWithChild.Add(d_TalkToUnknownWithChild3);
         l_TalkToUnknownWithChild.Add(d_TalkToUnknownWithChild4);
+        l_TalkToUnknownWithChild.Add(d_TalkToUnknownWithChild5);
         l_TalkToUnknownWithOutChild.Add(d_TalkToUnknownWithOutChild1);
         l_TalkToUnknownWithOutChild.Add(d_TalkToUnknownWithOutChild2);
         l_TalkToUnknownWithOutChild.Add(d_TalkToUnknownWithOutChild3);
@@ -231,33 +241,35 @@ public class GameInitializer : MonoBehaviour
         l_ChooseScissorD = new List<Dialogue>();
         l_LeaveNoahRoomD = new List<Dialogue>();
 
-        Dialogue d_enteringNoahRoom1 = new Dialogue("Noah!\nThank God you're Ok!", img_Father);
-        Dialogue d_enteringNoahRoom2 = new Dialogue("son why are you not answering?", img_Father);  // 1st action
+        Dialogue d_enteringNoahRoom1 = new Dialogue("Noah!\nThank God you're Ok buddy!", img_Father);
+        Dialogue d_enteringNoahRoom2 = new Dialogue("Son why are you not answering?\nWhat happened", img_Father);  // 1st action
 
-        Dialogue d_seeOrigami3 = new Dialogue("What'up with all those origamis\nSome of them are flying too!", img_Father); //2nd
+        Dialogue d_seeOrigami3 = new Dialogue("What happened here?!Why are these Origamis flying all over the place\n", img_Father); //2nd
 
-        Dialogue d_blaming1 = new Dialogue("Oh now you remember i exist?", img_Son);
-        Dialogue d_blaming2 = new Dialogue("Remember when we used to favor Sarah over me all the time?", img_Son);
-        Dialogue d_blaming3 = new Dialogue("WELL I HAVE NEVER FORGOTTEN", img_Son);
-        Dialogue d_blaming4 = new Dialogue("Let's solve this out later son!\n come on, come with me, let us escape now!", img_Father); //2nd
-        Dialogue d_blaming5 = new Dialogue("No this time is on me..\nLET'S PLAY!", img_Son);
+        Dialogue d_blaming1 = new Dialogue("The Man!He told me that you don't love me anymore, and soon you won't exist in my life anymore", img_Son);
+        Dialogue d_blaming1_1 = new Dialogue("The Man!He told me that you don't love me anymore, and soon you won't exist in my life anymore", img_Son);
+        Dialogue d_blaming2 = new Dialogue("What Man??!!!\nThat is not true don't believe him.", img_Father);
+        Dialogue d_blaming3 = new Dialogue("I believe him. He had the needle of the truth, and he was right,\nYOU WENT TO SAVE SARAH FIRST!", img_Son);
+        Dialogue d_blaming4 = new Dialogue("NOO! I just heard her first, now stop this and come with me to find your mom", img_Father); //2nd
+        Dialogue d_blaming5 = new Dialogue("I'm not going with you dad, unless you beat me at the game", img_Son);
+        Dialogue d_blaming6 = new Dialogue("Play Rock, Paper, Scissors with me dad!\nOr leave me here", img_Son);
 
         Dialogue d_chooseNoah1 = new Dialogue("You proved me wrong, you do care about me!", img_Son);
         Dialogue d_chooseNoah2 = new Dialogue("Let's get out of here son!", img_Father);
 
         Dialogue d_chooseSarah1 = new Dialogue("I knew it! you would choose her over me!", img_Son);
-        Dialogue d_chooseSarah2 = new Dialogue("See you in another life son", img_Son);
+        Dialogue d_chooseSarah2 = new Dialogue("See you in another life dad", img_Son);
 
-        Dialogue d_PlayRPS1 = new Dialogue("So no you play over us two, either take us both, or leave us forever as you always did.", img_Son);
+        Dialogue d_PlayRPS1 = new Dialogue("So now you play over us two, either take us both, or leave us forever as you always did.", img_Son);
 
-        Dialogue d_chooseRock1 = new Dialogue("WRONG CHOICE !\n you lost us both", img_Son);
+        Dialogue d_chooseRock1 = new Dialogue("I beat you dad! I hate you!\nNow GET OUT OF MY ROOM!!!", img_Son);
 
-        Dialogue d_choosePaper1 = new Dialogue("You knew that you should choose paper because of the origami, good job !", img_Son);
+        Dialogue d_choosePaper1 = new Dialogue("You knew I would choose paper....,You proved me wrong.....\nYou proved the man wrong!", img_Son_Good);
+        Dialogue d_choosePaper2 = new Dialogue("Noah you are back!!", img_Father);
+        Dialogue d_chooseScissor1 = new Dialogue("You knew I would choose paper....,You proved me wrong.....\nYou proved the man wrong!", img_Son_Good);
+        Dialogue d_chooseScissor2 = new Dialogue("Noah you are back!!", img_Father);
 
-        Dialogue d_chooseScissor1 = new Dialogue("You knew that you should choose paper because of the origami, good job !", img_Son);
-
-
-        Dialogue d_leaveNoahRoom1 = new Dialogue("Let's search for my wife!", img_Father);
+        Dialogue d_leaveNoahRoom1 = new Dialogue("Let's search for Helen!", img_Father_Angry);
 
 
         l_enteringNoahRoomD.Add(d_enteringNoahRoom1);
@@ -266,10 +278,12 @@ public class GameInitializer : MonoBehaviour
         l_seeOrigamiD.Add(d_seeOrigami3);
 
         l_blamingD.Add(d_blaming1);
+        l_blamingD.Add(d_blaming1_1);
         l_blamingD.Add(d_blaming2);
         l_blamingD.Add(d_blaming3);
         l_blamingD.Add(d_blaming4);
         l_blamingD.Add(d_blaming5);
+        l_blamingD.Add(d_blaming6);
 
         l_chooseNoahOnlyD.Add(d_chooseNoah1);
         l_chooseNoahOnlyD.Add(d_chooseNoah2);
@@ -282,8 +296,10 @@ public class GameInitializer : MonoBehaviour
         l_ChooseRockD.Add(d_chooseRock1);
 
         l_ChoosePaperD.Add(d_choosePaper1);
+        l_ChoosePaperD.Add(d_choosePaper2);
 
         l_ChooseScissorD.Add(d_chooseScissor1);
+        l_ChooseScissorD.Add(d_chooseScissor2);
 
         l_LeaveNoahRoomD.Add(d_leaveNoahRoom1);
 

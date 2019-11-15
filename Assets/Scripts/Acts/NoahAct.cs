@@ -1,21 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using Act = Structs.Act;
 using Action = Structs.Action;
 using UnityEngine.UI;
 
 
-//l_Act_Noah.Add(a_SeeNoah); 0 
-//      l_Act_Noah.Add(a_SeeOrigami); 1
-//    l_Act_Noah.Add(a_NoahBlameFather); 2
-//   l_Act_Noah.Add(a_chooseNoahOnly); 3
-///  l_Act_Noah.Add(a_chooseSarahOnly); 4
-//  l_Act_Noah.Add(a_chooseRPS); 5 
-// l_Act_Noah.Add(a_chooseRock); 6
-// l_Act_Noah.Add(a_choosePaper); 7 
-///l_Act_Noah.Add(a_chooseScissor); 8
-//l_Act_Noah.Add(a_LeaveRoomNoah); 9
+
 
 
 
@@ -42,7 +34,8 @@ public class NoahAct : MonoBehaviour
     bool showed_decision_rps;
 
     bool branch1;
-
+    bool IsTimeLinePlayed;
+    bool IsTimeLinePlaying;
 
     GameObject g_DboxObj;
 
@@ -55,6 +48,9 @@ public class NoahAct : MonoBehaviour
     [SerializeField]
     private GameObject g_NoahCharacter;
 
+    [SerializeField]
+    private GameObject ELevatorLight;
+
     private Animator anim;
     private bool isAnim1Played;
     private bool isAnim2Played;
@@ -66,7 +62,24 @@ public class NoahAct : MonoBehaviour
     GameObject ThreeChoice;
 
 
-
+    [SerializeField]
+    GameObject Cameras;
+    [SerializeField]
+    GameObject RPScards;
+    [SerializeField]
+    Image ChoosenCard;
+    [SerializeField]
+    GameObject Timeline;
+    [SerializeField]
+    Sprite PaperCard;
+    [SerializeField]
+    Sprite RockCard;
+    [SerializeField]
+    Sprite ScissorsCard;
+    [SerializeField]
+    GameObject Father;
+    [SerializeField]
+    GameObject CutsceneObjects;
 
     // Start is called before the first frame update
     void Start()
@@ -190,7 +203,7 @@ public class NoahAct : MonoBehaviour
 
                     text1.gameObject.GetComponent<Text>().text = "Take me only\n press 1";
                     text2.gameObject.GetComponent<Text>().text = "Take my sister\n press 2";
-                    text3.gameObject.GetComponent<Text>().text = "Play Rock Paper Scissor\n press3";
+                    text3.gameObject.GetComponent<Text>().text = "Play Rock Paper Scissor\nTake both of them or leave both of them\n press3";
                    
                 }
             }
@@ -229,6 +242,7 @@ public class NoahAct : MonoBehaviour
                 {
                     a_Action_3.isCompleted = true;
                     GameInitializer.StateInstance.isHasSon = true;
+                    GameInitializer.StateInstance.isHasDaughter = false;
                 }
             }
 
@@ -254,6 +268,8 @@ public class NoahAct : MonoBehaviour
 
             if ( (a_Action_5.isCompleted && !showed_decision_rps&& branch1) || ( a_Action_2.isCompleted&&!showed_decision_rps && !branch1 ))
             {
+
+                RPScards.SetActive(true);
                 g_threeChoiceCanv = Instantiate(ThreeChoice);
                 Transform panel = g_threeChoiceCanv.transform.GetChild(0);
 
@@ -301,58 +317,28 @@ public class NoahAct : MonoBehaviour
 
             if (a_Action_6.isPlaying && !a_Action_6.isCompleted)
             {
-                TraverseDBox(6);
-                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_6.l_DialogueBoxes.Count))
-                {
-                    a_Action_6.isCompleted = true;
-                 
-                }
+                StartCoroutine(ChoseRock());
             }
             if (a_Action_7.isPlaying && !a_Action_7.isCompleted)
             {
-                TraverseDBox(7);
-                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_7.l_DialogueBoxes.Count))
-                {
-                    a_Action_7.isCompleted = true;
-                    if (branch1)
-                    {
-                        GameInitializer.StateInstance.isHasDaughter = true;
-                        GameInitializer.StateInstance.isHasSon = true;
-                    }
-                    else
-                    {
-                        GameInitializer.StateInstance.isHasSon = true;
-                    }
-                }
+                StartCoroutine(ChosePaper());
             }
 
             if (a_Action_8.isPlaying && !a_Action_8.isCompleted)
             {
-                TraverseDBox(8);
-                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_8.l_DialogueBoxes.Count))
-                {
-                    a_Action_8.isCompleted = true;
-                    if (branch1)
-                    {
-                        GameInitializer.StateInstance.isHasDaughter = true;
-                        GameInitializer.StateInstance.isHasSon = true;
-                    }
-                    else
-                    {
-                        GameInitializer.StateInstance.isHasSon = true;
-                    }
-
-                }
+                StartCoroutine(ChoseScissors());
             }
 
-            if (a_Action_0.isCompleted && a_Action_1.isCompleted && a_Action_2.isCompleted &&
-                (a_Action_3.isCompleted || a_Action_4.isCompleted || a_Action_5.isCompleted) &&
-                a_Action_6.isCompleted || a_Action_7.isCompleted || a_Action_8.isCompleted)
+            if ( ( a_Action_0.isCompleted && a_Action_1.isCompleted && a_Action_2.isCompleted &&
+                (a_Action_3.isCompleted || a_Action_4.isCompleted || 
+                (a_Action_5.isCompleted &&(a_Action_6.isCompleted || a_Action_7.isCompleted || a_Action_8.isCompleted))  ) ))
             {
                 a_Action_9.isStarted = true;
                 //    g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_9.l_DialogueBoxes);
                 //  a_Action_9.isPlaying = true;
                 g_Elevator.SetActive(true);
+                if (ELevatorLight)
+                    ELevatorLight.SetActive(true);
             }
 
 
@@ -379,6 +365,119 @@ public class NoahAct : MonoBehaviour
         a_Action_0.isStarted = true;
         g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_0.l_DialogueBoxes);
         a_Action_0.isPlaying = true;
+
+    }
+
+
+    IEnumerator ChosePaper()
+    {
+        if (!IsTimeLinePlayed)
+        {
+            IsTimeLinePlaying = true;
+            Father.SetActive(false);
+            Cameras.SetActive(true);
+            IsTimeLinePlayed = true;
+            Destroy(RPScards);
+            
+            Timeline.GetComponent<PlayableDirector>().Play();
+            ChoosenCard.GetComponent<Image>().sprite = PaperCard;
+            yield return new WaitForSeconds((float)Timeline.GetComponent<PlayableDirector>().duration);
+            IsTimeLinePlaying = false;
+            Cameras.SetActive(false);
+            Destroy(CutsceneObjects);
+            Father.SetActive(true);
+        }
+        if (!IsTimeLinePlaying)
+        {
+            TraverseDBox(7);
+            if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_7.l_DialogueBoxes.Count))
+            {
+                a_Action_7.isCompleted = true;
+                if (branch1)
+                {
+                    GameInitializer.StateInstance.isHasDaughter = true;
+                    GameInitializer.StateInstance.isHasSon = true;
+                }
+                else
+                {
+                    GameInitializer.StateInstance.isHasSon = true;
+                }
+            }
+        }
+           
+
+
+    }
+
+    IEnumerator ChoseScissors()
+    {
+        if (!IsTimeLinePlayed)
+        {
+            IsTimeLinePlaying = true;
+            Father.SetActive(false);
+            Cameras.SetActive(true);
+            IsTimeLinePlayed = true;
+            Destroy(RPScards);
+            
+            Timeline.GetComponent<PlayableDirector>().Play();
+            ChoosenCard.GetComponent<Image>().sprite = ScissorsCard;
+            yield return new WaitForSeconds((float)Timeline.GetComponent<PlayableDirector>().duration);
+            IsTimeLinePlaying = false;
+            Cameras.SetActive(false);
+            Destroy(CutsceneObjects);
+            Father.SetActive(true);
+        }
+        if (!IsTimeLinePlaying)
+        {
+            TraverseDBox(8);
+            if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_8.l_DialogueBoxes.Count))
+            {
+                a_Action_8.isCompleted = true;
+                if (branch1)
+                {
+                    GameInitializer.StateInstance.isHasDaughter = true;
+                    GameInitializer.StateInstance.isHasSon = true;
+                }
+                else
+                {
+                    GameInitializer.StateInstance.isHasSon = true;
+                }
+
+            }
+        }
+
+
+    }
+
+    IEnumerator ChoseRock()
+    {
+        if (!IsTimeLinePlayed)
+        {
+            IsTimeLinePlaying = true;
+            Father.SetActive(false);
+            Cameras.SetActive(true);
+            IsTimeLinePlayed = true;
+            Destroy(RPScards);
+           
+            Timeline.GetComponent<PlayableDirector>().Play();
+            ChoosenCard.GetComponent<Image>().sprite = RockCard;
+            yield return new WaitForSeconds((float)Timeline.GetComponent<PlayableDirector>().duration);
+            IsTimeLinePlaying = false;
+            Cameras.SetActive(false);
+            Destroy(CutsceneObjects);
+            Father.SetActive(true);
+        }
+        if (!IsTimeLinePlaying)
+        {
+            TraverseDBox(6);
+            if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_6.l_DialogueBoxes.Count))
+            {
+                a_Action_6.isCompleted = true;
+
+            }
+        }
+       
+
 
     }
 
