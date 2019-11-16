@@ -34,6 +34,7 @@ public class NoahAct : MonoBehaviour
     bool showed_decision_rps;
 
     bool branch1;
+   
     bool IsTimeLinePlayed;
     bool IsTimeLinePlaying;
 
@@ -122,18 +123,22 @@ public class NoahAct : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
+       
 
         if (GameInitializer.StateInstance.e_CurrentAct == Act.NOAH_ROOM)
         {
-            if (GameInitializer.StateInstance.isHasDaughter && !a_Action_0.isStarted) {
+            if (GameInitializer.StateInstance.isHasDaughter && !a_Action_0.isStarted)
+            {
                 branch1 = true;
             }
 
 
 
-            if (NoahSeen && !a_Action_0.isStarted  && !a_Action_0.isCompleted && (a_Action_1.isCompleted || ! a_Action_1.isStarted) )
+            if (NoahSeen && !a_Action_0.isStarted && !a_Action_0.isCompleted && (a_Action_1.isCompleted || !a_Action_1.isStarted))
             {
-                Debug.Log("should start action 0");
+                
                 a_Action_0.isStarted = true;
                 g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_0.l_DialogueBoxes);
                 a_Action_0.isPlaying = true;
@@ -147,15 +152,15 @@ public class NoahAct : MonoBehaviour
                 }
             }
 
-            if (OrigamiSeen && !a_Action_1.isStarted  && !a_Action_1.isCompleted && (a_Action_0.isCompleted || !a_Action_0.isStarted))
+            if (OrigamiSeen && !a_Action_1.isStarted && !a_Action_1.isCompleted && (a_Action_0.isCompleted || !a_Action_0.isStarted))
             {
 
-                Debug.Log("should start action 1");
+                
                 a_Action_1.isStarted = true;
                 g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_1.l_DialogueBoxes);
                 a_Action_1.isPlaying = true;
 
-              
+
             }
             if (a_Action_1.isStarted && a_Action_1.isPlaying && !a_Action_1.isCompleted && (a_Action_0.isCompleted || !a_Action_0.isStarted))
             {
@@ -202,7 +207,7 @@ public class NoahAct : MonoBehaviour
 
                     MainAudioSource.clip = DecisionAudioClip;
                     MainAudioSource.Play();
-                    
+
                     g_threeChoiceCanv = Instantiate(ThreeChoice);
                     Transform panel = g_threeChoiceCanv.transform.GetChild(0);
 
@@ -218,7 +223,7 @@ public class NoahAct : MonoBehaviour
                     text1.gameObject.GetComponent<Text>().text = "Take me only\n press 1";
                     text2.gameObject.GetComponent<Text>().text = "Take my sister\n press 2";
                     text3.gameObject.GetComponent<Text>().text = "Play Rock Paper Scissor\nTake both of them or leave both of them\n press3";
-                   
+
                 }
             }
 
@@ -244,8 +249,9 @@ public class NoahAct : MonoBehaviour
                 a_Action_4.isPlaying = true;
 
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3) && a_Action_2.isCompleted && !a_Action_5.isCompleted && branch1)
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && a_Action_2.isCompleted && !a_Action_5.isCompleted)
             {
+               
                 a_Action_5.isStarted = true;
                 Destroy(g_threeChoiceCanv);
                 MainAudioSource.clip = SoundTrackAudioClip;
@@ -255,7 +261,7 @@ public class NoahAct : MonoBehaviour
             }
 
 
-            if (a_Action_3.isPlaying && ! a_Action_3.isCompleted && branch1)
+            if (a_Action_3.isPlaying && !a_Action_3.isCompleted && branch1)
             {
                 TraverseDBox(3);
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_3.l_DialogueBoxes.Count))
@@ -266,7 +272,7 @@ public class NoahAct : MonoBehaviour
                 }
             }
 
-           
+
             if (a_Action_4.isPlaying && !a_Action_4.isCompleted && branch1)
             {
                 TraverseDBox(4);
@@ -277,8 +283,9 @@ public class NoahAct : MonoBehaviour
                 }
             }
 
-            if (a_Action_5.isPlaying && !a_Action_5.isCompleted && branch1)
+            if (a_Action_5.isPlaying && !a_Action_5.isCompleted)
             {
+                
                 TraverseDBox(5);
                 if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_5.l_DialogueBoxes.Count))
                 {
@@ -286,9 +293,9 @@ public class NoahAct : MonoBehaviour
                 }
             }
 
-            if ( (a_Action_5.isCompleted && !showed_decision_rps&& branch1) || ( a_Action_2.isCompleted&&!showed_decision_rps && !branch1 ))
+            if ((a_Action_5.isCompleted && !showed_decision_rps && branch1) || (a_Action_2.isCompleted && !showed_decision_rps && !branch1))
             {
-
+               
                 RPScards.SetActive(true);
                 MainAudioSource.clip = DecisionAudioClip;
                 MainAudioSource.Play();
@@ -309,11 +316,12 @@ public class NoahAct : MonoBehaviour
                 text3.gameObject.GetComponent<Text>().text = "SCISSOR\n press3";
 
                 showed_decision_rps = true;
+                a_Action_5.isCompleted = true;
 
             }
 
-            if ( (a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha1)&& branch1)
-                || (a_Action_2.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha1)&& !branch1 ))
+            if ((a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha1) && branch1)
+                || (a_Action_2.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha1) && !branch1))
             {
                 a_Action_6.isStarted = true;
                 Destroy(g_threeChoiceCanv);
@@ -322,18 +330,18 @@ public class NoahAct : MonoBehaviour
                 g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_6.l_DialogueBoxes);
                 a_Action_6.isPlaying = true;
             }
-            else if ((a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha2)&&branch1) 
-                || (a_Action_2.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha2) && !branch1) )
-                {
-                    a_Action_7.isStarted = true;
-                    Destroy(g_threeChoiceCanv);
-                    MainAudioSource.clip = SoundTrackAudioClip;
-                    MainAudioSource.Play();
-                    g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_7.l_DialogueBoxes);
-                    a_Action_7.isPlaying = true;
-                }
-            else if ((a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha3)&&branch1)
-                || (a_Action_2.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha3) && !branch1 ))
+            else if ((a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha2) && branch1)
+                || (a_Action_2.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha2) && !branch1))
+            {
+                a_Action_7.isStarted = true;
+                Destroy(g_threeChoiceCanv);
+                MainAudioSource.clip = SoundTrackAudioClip;
+                MainAudioSource.Play();
+                g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_7.l_DialogueBoxes);
+                a_Action_7.isPlaying = true;
+            }
+            else if ((a_Action_5.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha3) && branch1)
+                || (a_Action_2.isCompleted && showed_decision_rps && Input.GetKeyDown(KeyCode.Alpha3) && !branch1))
             {
                 a_Action_8.isStarted = true;
                 Destroy(g_threeChoiceCanv);
@@ -357,32 +365,15 @@ public class NoahAct : MonoBehaviour
                 StartCoroutine(ChoseScissors());
             }
 
-            if ( ( a_Action_0.isCompleted && a_Action_1.isCompleted && a_Action_2.isCompleted &&
-                (a_Action_3.isCompleted || a_Action_4.isCompleted || 
-                (a_Action_5.isCompleted &&(a_Action_6.isCompleted || a_Action_7.isCompleted || a_Action_8.isCompleted))  ) ))
+            if ((a_Action_0.isCompleted && a_Action_1.isCompleted && a_Action_2.isCompleted &&
+             (a_Action_3.isCompleted || a_Action_4.isCompleted ||
+             (a_Action_5.isCompleted && (a_Action_6.isCompleted || a_Action_7.isCompleted || a_Action_8.isCompleted)))) )
             {
-                a_Action_9.isStarted = true;
-                //    g_DboxObj = DBox.InitializeDBox(DBoxprefab, a_Action_9.l_DialogueBoxes);
-                //  a_Action_9.isPlaying = true;
                 g_Elevator.SetActive(true);
                 if (ELevatorLight)
                     ELevatorLight.SetActive(true);
+
             }
-
-
-
-            //if (a_Action_9.isPlaying && !a_Action_9.isCompleted)
-            //{
-            //    TraverseDBox(9);
-            //    if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_9.l_DialogueBoxes.Count))
-            //    {
-            //     //   a_Action_9.isCompleted = true;
-            
-                    
-            //    }
-            //}
-
-
         }
     }
 

@@ -55,7 +55,6 @@ public class ElevatorAct : MonoBehaviour
         GameInitializer.StateInstance.e_CurrentAct = Act.ELEVATOR;
         GameInitializer.StateInstance.l_Actions = GameInitializer.l_Act_Elevator;
         a_Action_0 = GameInitializer.StateInstance.l_Actions[0];
-        a_Action_1 = GameInitializer.StateInstance.l_Actions[1];
         a_Action_2 = GameInitializer.StateInstance.l_Actions[2];
         a_Action_3 = GameInitializer.StateInstance.l_Actions[3];
         a_Action_4 = GameInitializer.StateInstance.l_Actions[4];
@@ -66,10 +65,10 @@ public class ElevatorAct : MonoBehaviour
     {
         if (GameInitializer.StateInstance.e_CurrentAct == Act.ELEVATOR)
         {
-            if (!a_Action_0.isStarted && !a_Action_0.isCompleted && GameInitializer.StateInstance.isHasDaughter)
+            if (!a_Action_0.isStarted && !a_Action_0.isCompleted)
             {
                 a_Action_0.isStarted = true;
-                StartCoroutine(WaitingBeforeAct1(2));
+                StartCoroutine(WaitingBeforeAct1(1));
             }
             if (a_Action_0.isStarted && a_Action_0.isPlaying && !a_Action_0.isCompleted)
             {
@@ -79,20 +78,8 @@ public class ElevatorAct : MonoBehaviour
                     a_Action_0.isCompleted = true;
                 }
             }
-            if (!a_Action_1.isStarted && !a_Action_1.isCompleted && !GameInitializer.StateInstance.isHasDaughter)
-            {
-                a_Action_1.isStarted = true;
-                StartCoroutine(WaitingBeforeAct2(2));
-            }
-            if (a_Action_1.isStarted && a_Action_1.isPlaying && !a_Action_1.isCompleted)
-            {
-                TraverseDBox(1);
-                if (g_DboxObj.GetComponent<DBoxAttributes>().i_CurrentDialogueIndex == (a_Action_1.l_DialogueBoxes.Count))
-                {
-                    a_Action_1.isCompleted = true;
-                }
-            }
-            if (InElevator && !a_Action_2.isStarted && !a_Action_2.isCompleted && (a_Action_0.isCompleted || a_Action_1.isCompleted))
+            
+            if (InElevator && !a_Action_2.isStarted && !a_Action_2.isCompleted && a_Action_0.isCompleted )
             {
                 a_Action_2.isStarted = true;
                
@@ -129,14 +116,7 @@ public class ElevatorAct : MonoBehaviour
         g_DboxObj =  DBox.InitializeDBox(DBoxprefab, a_Action_0.l_DialogueBoxes);
         a_Action_0.isPlaying = true;
     }
-    IEnumerator WaitingBeforeAct2(float sec)
-    {
-        yield return new WaitForSeconds(sec);
-        a_Action_1.isStarted = true;
-                
-        g_DboxObj =  DBox.InitializeDBox(DBoxprefab, a_Action_1.l_DialogueBoxes);
-        a_Action_1.isPlaying = true;
-    }
+  
     IEnumerator WaitingInElevator(float sec)
     {
        

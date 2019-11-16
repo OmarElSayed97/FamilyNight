@@ -9,8 +9,11 @@ public class UI : MonoBehaviour
 
    [SerializeField] 
    private GameObject LeftCornerButton;
-   
-   [SerializeField] 
+
+    [SerializeField]
+    private GameObject CreditsPanel;
+
+    [SerializeField] 
    private GameObject Entrance;
    
    [SerializeField] 
@@ -59,4 +62,12 @@ public class UI : MonoBehaviour
    {
       Application.Quit();
    }
+
+
+   public void ViewCredits()
+    {
+        MainMenuPanel.SetActive(false);
+        CreditsPanel.SetActive(true);
+
+    }
 }
